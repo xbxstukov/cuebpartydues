@@ -67,6 +67,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # xlspath = os.path.abspath(salaryPath) 
         xlspath = salaryPath
         xlsxpath = xlspath + 'x'
+        current_dir = os.path.dirname(os.path.abspath(xlsxpath))
         if os.path.exists(xlsxpath):
             os.remove(xlsxpath)
         excel = win32.gencache.EnsureDispatch('Excel.Application')
@@ -851,7 +852,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ws2.page_setup.paperSize = ws2.PAPERSIZE_A4
         # time.sleep(2)
         partyFeeName = str(year)+'年第'+str(season)+'季度_应缴党费.xlsx'
-        wb2.save(filename = partyFeeName)
+        wb2.save(current_dir + '/' + partyFeeName)
         # print()
         # print('正在生成应交党费数据...')
         # time.sleep(2)
