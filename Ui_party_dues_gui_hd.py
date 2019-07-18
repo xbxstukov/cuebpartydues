@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/xbx/Documents/cuebpartydues/party_dues_gui_hd.ui'
+# Form implementation generated from reading ui file 'g:\workspace\cuebpartydues\party_dues_gui_hd.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -14,7 +14,7 @@ class Ui_MainWindow(object):
         MainWindow.setEnabled(True)
         MainWindow.resize(581, 234)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:/OneDrive - cueb.edu.cn/开发文档/Python/党费自动计算工具/branch/Yen.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:/Users/xbx/Desktop/party.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")

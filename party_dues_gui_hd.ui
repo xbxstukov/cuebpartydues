@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>E:/OneDrive - cueb.edu.cn/开发文档/Python/党费自动计算工具/branch/Yen.ico</normaloff>E:/OneDrive - cueb.edu.cn/开发文档/Python/党费自动计算工具/branch/Yen.ico</iconset>
+    <normaloff>C:/Users/xbx/Desktop/party.ico</normaloff>C:/Users/xbx/Desktop/party.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="calculateButton">
