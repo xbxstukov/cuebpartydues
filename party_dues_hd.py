@@ -859,9 +859,9 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # input('工资数据写入成功！保存文件名为【'+partyFeeName+'】，按回车键退出程序！')
         QtWidgets.QMessageBox.information(self, "温馨提示", "缴费表格已生成！", QtWidgets.QMessageBox.Yes)
 if __name__ == '__main__':
-    os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
+    os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"         #高分辨率支持
     app = QtWidgets.QApplication(sys.argv)
-    app.setAttribute(Qt.AA_EnableHighDpiScaling)
+    app.setAttribute(Qt.AA_EnableHighDpiScaling)            #高分辨率支持
     window = mywindow()
     window.show()
     sys.exit(app.exec_())
