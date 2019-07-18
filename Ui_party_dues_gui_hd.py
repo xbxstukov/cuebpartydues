@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'g:\workspace\cuebpartydues\party_dues_gui_hd.ui'
+# Form implementation generated from reading ui file '/Users/xbx/Documents/cuebpartydues/party_dues_gui_hd.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(566, 234)
+        MainWindow.resize(581, 234)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:/OneDrive - cueb.edu.cn/开发文档/Python/党费自动计算工具/branch/Yen.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.calculateButton = QtWidgets.QPushButton(self.centralwidget)
         self.calculateButton.setEnabled(False)
-        self.calculateButton.setGeometry(QtCore.QRect(210, 140, 141, 31))
+        self.calculateButton.setGeometry(QtCore.QRect(220, 130, 141, 31))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.calculateButton.setFont(font)
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(230, 190, 331, 39))
+        self.aboutLabel.setGeometry(QtCore.QRect(190, 180, 361, 39))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
@@ -41,13 +41,13 @@ class Ui_MainWindow(object):
         self.lineEdit.setFont(font)
         self.lineEdit.setObjectName("lineEdit")
         self.importButton = QtWidgets.QPushButton(self.centralwidget)
-        self.importButton.setGeometry(QtCore.QRect(458, 70, 81, 31))
+        self.importButton.setGeometry(QtCore.QRect(460, 70, 111, 31))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.importButton.setFont(font)
         self.importButton.setObjectName("importButton")
         self.filepathLabel = QtWidgets.QLabel(self.centralwidget)
-        self.filepathLabel.setGeometry(QtCore.QRect(20, 60, 81, 51))
+        self.filepathLabel.setGeometry(QtCore.QRect(20, 60, 91, 51))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.filepathLabel.setFont(font)

@@ -6,7 +6,7 @@ import datetime
 import sys
 import openpyxl
 import time
-import win32com.client as win32
+# import win32com.client as win32
 from openpyxl.styles import Font, colors, Border, Side, Alignment, PatternFill
 
 from PyQt5.QtWidgets import *

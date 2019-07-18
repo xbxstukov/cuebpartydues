@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
+    <width>581</width>
     <height>234</height>
    </rect>
   </property>
@@ -27,8 +27,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>140</y>
+      <x>220</x>
+      <y>130</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -54,9 +54,9 @@
    <widget class="QLabel" name="aboutLabel">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>190</y>
-      <width>331</width>
+      <x>190</x>
+      <y>180</y>
+      <width>361</width>
       <height>39</height>
      </rect>
     </property>
@@ -87,9 +87,9 @@
    <widget class="QPushButton" name="importButton">
     <property name="geometry">
      <rect>
-      <x>458</x>
+      <x>460</x>
       <y>70</y>
-      <width>81</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -107,7 +107,7 @@
      <rect>
       <x>20</x>
       <y>60</y>
-      <width>81</width>
+      <width>91</width>
       <height>51</height>
      </rect>
     </property>
