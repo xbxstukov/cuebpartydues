@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'g:\workspace\cuebpartydues\party_dues_gui_hd.ui'
+# Form implementation generated from reading ui file 'c:\workspace\cuebpartydues\party_dues_gui_hd.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -14,13 +14,13 @@ class Ui_MainWindow(object):
         MainWindow.setEnabled(True)
         MainWindow.resize(581, 234)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/xbx/Desktop/party.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../../Users/xbx/Desktop/party.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.calculateButton = QtWidgets.QPushButton(self.centralwidget)
         self.calculateButton.setEnabled(False)
-        self.calculateButton.setGeometry(QtCore.QRect(220, 130, 141, 31))
+        self.calculateButton.setGeometry(QtCore.QRect(210, 130, 141, 31))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.calculateButton.setFont(font)
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(190, 180, 361, 39))
+        self.aboutLabel.setGeometry(QtCore.QRect(130, 180, 321, 39))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         self.filepathLabel.setFont(font)
         self.filepathLabel.setObjectName("filepathLabel")
         self.welcomeLabel = QtWidgets.QLabel(self.centralwidget)
-        self.welcomeLabel.setGeometry(QtCore.QRect(20, 10, 519, 49))
+        self.welcomeLabel.setGeometry(QtCore.QRect(160, 10, 241, 49))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         font.setPointSize(12)
