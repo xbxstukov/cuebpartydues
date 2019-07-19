@@ -31,6 +31,11 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # filepath = str(filename).replace("/","\\")
         filepath = filename
         self.calculateButton.setEnabled(True)
+    
+    def text2float(x):
+        x = str(x)
+        x = float(x.replace(",",""))
+        return x
 
     def calculation(self):
         unitName, okPressed = QtWidgets.QInputDialog.getText(self, "单位名称", "请输入您的单位名称", QtWidgets.QLineEdit.Normal, "工商管理学院")
@@ -65,94 +70,20 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         xlspath = filepath
         data = xlrd.open_workbook(xlspath)
         table = data.sheets()[0]
-        # 单元格文本转换为数字
-        for i in range(2, table.nrows+1):
-            if season == 1:
-                January = str(table.cell(2,str(i)).value)
-                January = January.replace(",","")
-                wsx['B'+str(i)] = float(January)
-                Feburary = str(wsx['C'+str(i)].value)
-                Feburary = Feburary.replace(",","")
-                wsx['C'+str(i)] = float(Feburary)
-                March = str(wsx['D'+str(i)].value)
-                March = March.replace(",","")
-                wsx['D'+str(i)] = float(March)
-            elif season == 2:
-                April = str(wsx['E'+str(i)].value)
-                April = April.replace(",","")
-                wsx['E'+str(i)] = float(April)
-                May = str(wsx['F'+str(i)].value)
-                May = May.replace(",","")
-                wsx['F'+str(i)] = float(May)
-                June = str(wsx['G'+str(i)].value)
-                June = June.replace(",","")
-                wsx['G'+str(i)] = float(June)
-            elif season == 3:
-                July = str(wsx['H'+str(i)].value)
-                July = July.replace(",","")
-                wsx['H'+str(i)] = float(July)
-                August = str(wsx['I'+str(i)].value)
-                August = August.replace(",","")   
-                wsx['I'+str(i)] = float(August)
-                September = str(wsx['J'+str(i)].value)
-                September = September.replace(",","")
-                wsx['J'+str(i)] = float(September)
-            elif season == 4:
-                October = str(wsx['K'+str(i)].value)
-                October = October.replace(",","")
-                wsx['K'+str(i)] = float(October)
-                November = str(wsx['L'+str(i)].value)
-                November = November.replace(",","")
-                wsx['L'+str(i)] = float(November)
-                December = str(wsx['M'+str(i)].value)
-                December = December.replace(",","")
-                wsx['M'+str(i)] = float(December)
-        wbx.save(xlsxpath)
-        # print()
-        # print('正在转换Excel文件: 工资.xls → 工资.xlsx')
-        salary = openpyxl.load_workbook(xlsxpath)
-        sheet = salary.active
-        dueNameList = []
-        JanList = []
-        FebList = []
-        MarList = []
-        AprList = []
-        MayList = []
-        JunList = []
-        JulList = []
-        AugList = []
-        SepList = []
-        OctList = []
-        NovList = []
-        DecList = []
-        for row in range(2, sheet.max_row+1):
-            dueName = sheet['A'+str(row)].value
-            dueNameList.append(dueName)
-            Jan = sheet['B'+str(row)].value
-            JanList.append(Jan)
-            Feb = sheet['C'+str(row)].value
-            FebList.append(Feb)
-            Mar = sheet['D'+str(row)].value
-            MarList.append(Mar)
-            Apr = sheet['E'+str(row)].value
-            AprList.append(Apr)
-            May = sheet['F'+str(row)].value
-            MayList.append(May)
-            Jun = sheet['G'+str(row)].value
-            JunList.append(Jun)
-            Jul = sheet['H'+str(row)].value
-            JulList.append(Jul)
-            Aug = sheet['I'+str(row)].value
-            AugList.append(Aug)
-            Sep = sheet['J'+str(row)].value
-            SepList.append(Sep)
-            Oct = sheet['K'+str(row)].value
-            OctList.append(Oct)
-            Nov = sheet['L'+str(row)].value
-            NovList.append(Nov)
-            Dec = sheet['M'+str(row)].value
-            DecList.append(Dec)
-
+        dueNameList = table.col_values(0)
+        JanList = table.col_values(1)
+        FebList = table.col_values(2)
+        MarList = table.col_values(3)
+        AprList = table.col_values(4)
+        MayList = table.col_values(5)
+        JunList = table.col_values(6)
+        JulList = table.col_values(7)
+        AugList = table.col_values(8)
+        SepList = table.col_values(9)
+        OctList = table.col_values(10)
+        NovList = table.col_values(11)
+        DecList = table.col_values(12)
+        # 缴费项目索引
         gwgzDex = dueNameList.index('岗位工资')
         xjgzDex = dueNameList.index('薪级工资')
         zbDex = dueNameList.index('职补')
@@ -168,13 +99,6 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # print('\n无法在您提供的工资表中找到“岗贴”，无法自动生成缴费表')
             QtWidgets.QMessageBox.information(self, "提示", "无法在您提供的工资表中找到“岗贴”，请手动输入岗贴", QtWidgets.QMessageBox.Yes)
             bzgt, okPressed = QtWidgets.QInputDialog.getInt(self, "自定义岗贴", "请输入岗贴(整数):", 0, 5400, 14100, 100)
-            # # time.sleep(2)
-            # while True:
-            #     bzgt = input('\n请您手动输入标准岗贴，然后按回车键：')
-            #     if bzgt.isdigit():
-            #         break
-            #     else:
-            #         print('\n您输入的不是整数，请输入整数')
         jsheDex = dueNameList.index('绩效减少额')
         kgjjDex = dueNameList.index('扣公积金')
         kzhynjDex = dueNameList.index('扣职业年金')
@@ -184,20 +108,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         try:
             srzj3Dex = dueNameList.index('薪金收入合计(3项)')
         except ValueError:
-            # print('\n无法在您提供的工资表中找到“薪金收入合计(3项)”项目，请您自行修改此项目在工资表中的名称，或联系作者索要最新版本的程序！')
-            # time.sleep(2)
-            # print('\n程序将于5秒后自动退出...')
-            # time.sleep(5)
             QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到“薪金收入合计(3项)”项目，请您自行修改此项目在工资表中的名称，程序将关闭", QtWidgets.QMessageBox.Yes)
             exit()
         ksh2Dex = dueNameList.index('扣税2') 
-
-        # time.sleep(2)
-        # print()
-        # print('正在解析工资数据...')
-        wb2 = openpyxl.Workbook()
-        ws2 = wb2.active
         # 缴费模板生成
+        wb2 = openpyxl.Workbook()
+        ws2 = wb2.active      
         for j in range(1,10):
             ws2.row_dimensions[j].height = 30    # 1-9行 行高30
         ws2.column_dimensions['A'].width = 7.28
@@ -302,23 +218,23 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 一季度
         if season == 1:
             # 第3行数据
-            ws2['B3'] = round(JanList[gwgzDex], 2)
-            ws2['C3'] = round(JanList[xjgzDex], 2)
-            ws2['D3'] = round(JanList[zbDex], 2)
-            ws2['E3'] = round(JanList[shbfDex], 2)
-            ws2['F3'] = round(JanList[xlfDex], 2)
-            ws2['G3'] = round(JanList[shfDex], 2)
-            ws2['H3'] = round(JanList[xnbtDex], 2)
+            ws2['B3'] = round(text2float(JanList[gwgzDex]), 2)
+            ws2['C3'] = round(text2float(JanList[xjgzDex]), 2)
+            ws2['D3'] = round(text2float(JanList[zbDex]), 2)
+            ws2['E3'] = round(text2float(JanList[shbfDex]), 2)
+            ws2['F3'] = round(text2float(JanList[xlfDex]), 2)
+            ws2['G3'] = round(text2float(JanList[shfDex]), 2)
+            ws2['H3'] = round(text2float(JanList[xnbtDex]), 2)
             if isFindGt is True:
-                ws2['I3'] = round(JanList[gtDex], 2)
+                ws2['I3'] = round(text2float(JanList[gtDex]), 2)
             elif isFindGt is False:
                 ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(JanList[jsheDex], 2)
-            ws2['K3'] = round(JanList[kgjjDex], 2)
-            ws2['L3'] = round(JanList[kzhynjDex], 2)
-            ws2['M3'] = round(JanList[kyxDex], 2)
-            ws2['N3'] = round(JanList[kshxDex], 2)
-            ws2['O3'] = round(JanList[kylxDex], 2)
+            ws2['J3'] = round(text2float(JanList[jsheDex]), 2)
+            ws2['K3'] = round(text2float(JanList[kgjjDex]), 2)
+            ws2['L3'] = round(text2float(JanList[kzhynjDex]), 2)
+            ws2['M3'] = round(text2float(JanList[kyxDex]), 2)
+            ws2['N3'] = round(text2float(JanList[kshxDex]), 2)
+            ws2['O3'] = round(text2float(JanList[kylxDex]), 2)
             if isFindGt is True:
                 tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
                     JanList[xnbtDex]+JanList[gtDex])/JanList[srzj3Dex]*JanList[ksh2Dex]
