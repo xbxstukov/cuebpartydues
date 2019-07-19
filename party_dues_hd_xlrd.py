@@ -227,540 +227,546 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ws2['P2'] = '-所得税'
         ws2['Q2'] = '合计'
         ws2['R2'] = '应交党费'
-        # 一季度
-        if season == 1:
-            # 第3行数据
-            ws2['B3'] = round(JanList[gwgzDex], 2)
-            ws2['C3'] = round(JanList[xjgzDex], 2)
-            ws2['D3'] = round(JanList[zbDex], 2)
-            ws2['E3'] = round(JanList[shbfDex], 2)
-            ws2['F3'] = round(JanList[xlfDex], 2)
-            ws2['G3'] = round(JanList[shfDex], 2)
-            ws2['H3'] = round(JanList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I3'] = round(text2float(JanList[gtDex]), 2)
-            elif isFindGt is False:
-                ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(JanList[jsheDex], 2)
-            ws2['K3'] = round(JanList[kgjjDex], 2)
-            ws2['L3'] = round(JanList[kzhynjDex], 2)
-            ws2['M3'] = round(JanList[kyxDex], 2)
-            ws2['N3'] = round(JanList[kshxDex], 2)
-            ws2['O3'] = round(JanList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
-                    JanList[xnbtDex]+JanList[gtDex])/JanList[srzj3Dex]*JanList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
-                    JanList[xnbtDex]+float(bzgt))/JanList[srzj3Dex]*JanList[ksh2Dex]        
-            ws2['P3'] = round(tax, 2)
-            if isFindGt is True:
-                total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
-                    JanList[shfDex]+JanList[xnbtDex]+JanList[gtDex]-JanList[jsheDex]-JanList[kgjjDex]-JanList[kzhynjDex]-\
-                        JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
-            elif isFindGt is False:
-                total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
-                    JanList[shfDex]+JanList[xnbtDex]+float(bzgt)-JanList[jsheDex]-JanList[kgjjDex]-JanList[kzhynjDex]-\
-                        JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
-            ws2['Q3'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R3'] = round(partyFee, 2)
-            # ws2['S3'] = JanList[srzj3Dex]
-            # ws2['T3'] = JanList[ksh2Dex]
-            # 第4行数据
-            ws2['B4'] = round(FebList[gwgzDex], 2)
-            ws2['C4'] = round(FebList[xjgzDex], 2)
-            ws2['D4'] = round(FebList[zbDex], 2)
-            ws2['E4'] = round(FebList[shbfDex], 2)
-            ws2['F4'] = round(FebList[xlfDex], 2)
-            ws2['G4'] = round(FebList[shfDex], 2)
-            ws2['H4'] = round(FebList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I4'] = round(FebList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I4'] = round(float(bzgt), 2)
-            ws2['J4'] = round(FebList[jsheDex], 2)
-            ws2['K4'] = round(FebList[kgjjDex], 2)
-            ws2['L4'] = round(FebList[kzhynjDex], 2)
-            ws2['M4'] = round(FebList[kyxDex], 2)
-            ws2['N4'] = round(FebList[kshxDex], 2)
-            ws2['O4'] = round(FebList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+FebList[shfDex]+\
-                    FebList[xnbtDex]+FebList[gtDex])/FebList[srzj3Dex]*FebList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+FebList[shfDex]+\
-                    FebList[xnbtDex]+float(bzgt))/FebList[srzj3Dex]*FebList[ksh2Dex]
-            ws2['P4'] = round(tax, 2)
-            if isFindGt is True:
-                total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
-                    FebList[shfDex]+FebList[xnbtDex]+FebList[gtDex]-FebList[jsheDex]-FebList[kgjjDex]-FebList[kzhynjDex]-\
+        try:
+            # 一季度
+            if season == 1:
+                # 第3行数据
+                ws2['B3'] = round(JanList[gwgzDex], 2)
+                ws2['C3'] = round(JanList[xjgzDex], 2)
+                ws2['D3'] = round(JanList[zbDex], 2)
+                ws2['E3'] = round(JanList[shbfDex], 2)
+                ws2['F3'] = round(JanList[xlfDex], 2)
+                ws2['G3'] = round(JanList[shfDex], 2)
+                ws2['H3'] = round(JanList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I3'] = round(text2float(JanList[gtDex]), 2)
+                elif isFindGt is False:
+                    ws2['I3'] = round(float(bzgt), 2)
+                ws2['J3'] = round(JanList[jsheDex], 2)
+                ws2['K3'] = round(JanList[kgjjDex], 2)
+                ws2['L3'] = round(JanList[kzhynjDex], 2)
+                ws2['M3'] = round(JanList[kyxDex], 2)
+                ws2['N3'] = round(JanList[kshxDex], 2)
+                ws2['O3'] = round(JanList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
+                        JanList[xnbtDex]+JanList[gtDex])/JanList[srzj3Dex]*JanList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
+                        JanList[xnbtDex]+float(bzgt))/JanList[srzj3Dex]*JanList[ksh2Dex]        
+                ws2['P3'] = round(tax, 2)
+                if isFindGt is True:
+                    total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
+                        JanList[shfDex]+JanList[xnbtDex]+JanList[gtDex]-JanList[jsheDex]-JanList[kgjjDex]-JanList[kzhynjDex]-\
+                            JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
+                        JanList[shfDex]+JanList[xnbtDex]+float(bzgt)-JanList[jsheDex]-JanList[kgjjDex]-JanList[kzhynjDex]-\
+                            JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
+                ws2['Q3'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R3'] = round(partyFee, 2)
+                # ws2['S3'] = JanList[srzj3Dex]
+                # ws2['T3'] = JanList[ksh2Dex]
+                # 第4行数据
+                ws2['B4'] = round(FebList[gwgzDex], 2)
+                ws2['C4'] = round(FebList[xjgzDex], 2)
+                ws2['D4'] = round(FebList[zbDex], 2)
+                ws2['E4'] = round(FebList[shbfDex], 2)
+                ws2['F4'] = round(FebList[xlfDex], 2)
+                ws2['G4'] = round(FebList[shfDex], 2)
+                ws2['H4'] = round(FebList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I4'] = round(FebList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I4'] = round(float(bzgt), 2)
+                ws2['J4'] = round(FebList[jsheDex], 2)
+                ws2['K4'] = round(FebList[kgjjDex], 2)
+                ws2['L4'] = round(FebList[kzhynjDex], 2)
+                ws2['M4'] = round(FebList[kyxDex], 2)
+                ws2['N4'] = round(FebList[kshxDex], 2)
+                ws2['O4'] = round(FebList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+FebList[shfDex]+\
+                        FebList[xnbtDex]+FebList[gtDex])/FebList[srzj3Dex]*FebList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+FebList[shfDex]+\
+                        FebList[xnbtDex]+float(bzgt))/FebList[srzj3Dex]*FebList[ksh2Dex]
+                ws2['P4'] = round(tax, 2)
+                if isFindGt is True:
+                    total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
+                        FebList[shfDex]+FebList[xnbtDex]+FebList[gtDex]-FebList[jsheDex]-FebList[kgjjDex]-FebList[kzhynjDex]-\
+                            FebList[kyxDex]-FebList[kshxDex]-FebList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
+                    FebList[shfDex]+FebList[xnbtDex]+float(bzgt)-FebList[jsheDex]-FebList[kgjjDex]-FebList[kzhynjDex]-\
                         FebList[kyxDex]-FebList[kshxDex]-FebList[kylxDex]-tax
-            elif isFindGt is False:
-                total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
-                FebList[shfDex]+FebList[xnbtDex]+float(bzgt)-FebList[jsheDex]-FebList[kgjjDex]-FebList[kzhynjDex]-\
-                    FebList[kyxDex]-FebList[kshxDex]-FebList[kylxDex]-tax
-            ws2['Q4'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R4'] = round(partyFee, 2)
-            # ws2['S4'] = FebList[srzj3Dex]
-            # ws2['T4'] = FebList[ksh2Dex]
-            # 第5行数据
-            ws2['B5'] = round(MarList[gwgzDex], 2)
-            ws2['C5'] = round(MarList[xjgzDex], 2)
-            ws2['D5'] = round(MarList[zbDex], 2)
-            ws2['E5'] = round(MarList[shbfDex], 2)
-            ws2['F5'] = round(MarList[xlfDex], 2)
-            ws2['G5'] = round(MarList[shfDex], 2)
-            ws2['H5'] = round(MarList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I5'] = round(MarList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I5'] = round(float(bzgt), 2)
-            ws2['J5'] = round(MarList[jsheDex], 2)
-            ws2['K5'] = round(MarList[kgjjDex], 2)
-            ws2['L5'] = round(MarList[kzhynjDex], 2)
-            ws2['M5'] = round(MarList[kyxDex], 2)
-            ws2['N5'] = round(MarList[kshxDex], 2)
-            ws2['O5'] = round(MarList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+MarList[shfDex]+\
-                    MarList[xnbtDex]+MarList[gtDex])/MarList[srzj3Dex]*MarList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+MarList[shfDex]+\
-                    MarList[xnbtDex]+float(bzgt))/MarList[srzj3Dex]*MarList[ksh2Dex]
-            ws2['P5'] = round(tax, 2)
-            if isFindGt is True:
-                total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
-                    MarList[shfDex]+MarList[xnbtDex]+MarList[gtDex]-MarList[jsheDex]-MarList[kgjjDex]-MarList[kzhynjDex]-\
-                        MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
-            elif isFindGt is False:
-                total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
-                    MarList[shfDex]+MarList[xnbtDex]+float(bzgt)-MarList[jsheDex]-MarList[kgjjDex]-MarList[kzhynjDex]-\
-                        MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
-            ws2['Q5'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R5'] = round(partyFee, 2)
-            # ws2['S5'] = MarList[srzj3Dex]
-            # ws2['T5'] = MarList[ksh2Dex]
-        # 二季度
-        elif season == 2:
-            # 第3行数据
-            ws2['B3'] = round(AprList[gwgzDex], 2)
-            ws2['C3'] = round(AprList[xjgzDex], 2)
-            ws2['D3'] = round(AprList[zbDex], 2)
-            ws2['E3'] = round(AprList[shbfDex], 2)
-            ws2['F3'] = round(AprList[xlfDex], 2)
-            ws2['G3'] = round(AprList[shfDex], 2)
-            ws2['H3'] = round(AprList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I3'] = round(AprList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(AprList[jsheDex], 2)
-            ws2['K3'] = round(AprList[kgjjDex], 2)
-            ws2['L3'] = round(AprList[kzhynjDex], 2)
-            ws2['M3'] = round(AprList[kyxDex], 2)
-            ws2['N3'] = round(AprList[kshxDex], 2)
-            ws2['O3'] = round(AprList[kylxDex], 2)
-            # ws2['S3'] = AprList[srzj3Dex]
-            # ws2['T3'] = AprList[ksh2Dex]
-            if isFindGt is True:
-                tax = (AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+AprList[shfDex]+\
-                    AprList[xnbtDex]+AprList[gtDex])/AprList[srzj3Dex]*AprList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+AprList[shfDex]+\
-                    AprList[xnbtDex]+float(bzgt))/AprList[srzj3Dex]*AprList[ksh2Dex]
-            ws2['P3'] = round(tax, 2)
-            if isFindGt is True:
-                total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
-                    AprList[shfDex]+AprList[xnbtDex]+AprList[gtDex]-AprList[jsheDex]-AprList[kgjjDex]-AprList[kzhynjDex]-\
-                        AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
-            elif isFindGt is False:
-                total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
-                    AprList[shfDex]+AprList[xnbtDex]+float(bzgt)-AprList[jsheDex]-AprList[kgjjDex]-AprList[kzhynjDex]-\
-                        AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
-            ws2['Q3'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R3'] = round(partyFee, 2)
-            # 第4行数据
-            ws2['B4'] = round(MayList[gwgzDex], 2)
-            ws2['C4'] = round(MayList[xjgzDex], 2)
-            ws2['D4'] = round(MayList[zbDex], 2)
-            ws2['E4'] = round(MayList[shbfDex], 2)
-            ws2['F4'] = round(MayList[xlfDex], 2)
-            ws2['G4'] = round(MayList[shfDex], 2)
-            ws2['H4'] = round(MayList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I4'] = round(MayList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I4'] = round(float(bzgt), 2)
-            ws2['J4'] = round(MayList[jsheDex], 2)
-            ws2['K4'] = round(MayList[kgjjDex], 2)
-            ws2['L4'] = round(MayList[kzhynjDex], 2)
-            ws2['M4'] = round(MayList[kyxDex], 2)
-            ws2['N4'] = round(MayList[kshxDex], 2)
-            ws2['O4'] = round(MayList[kylxDex], 2)
-            # ws2['S4'] = MayList[srzj3Dex]
-            # ws2['T4'] = MayList[ksh2Dex]
-            if isFindGt is True:
-                tax = (MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+MayList[shfDex]+\
-                    MayList[xnbtDex]+MayList[gtDex])/MayList[srzj3Dex]*MayList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+MayList[shfDex]+\
-                    MayList[xnbtDex]+float(bzgt))/MayList[srzj3Dex]*MayList[ksh2Dex]
-            ws2['P4'] = round(tax,2)
-            if isFindGt is True:
-                total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
-                    MayList[shfDex]+MayList[xnbtDex]+MayList[gtDex]-MayList[jsheDex]-MayList[kgjjDex]-MayList[kzhynjDex]-\
-                        MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
-            elif isFindGt is False:
-                total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
-                    MayList[shfDex]+MayList[xnbtDex]+float(bzgt)-MayList[jsheDex]-MayList[kgjjDex]-MayList[kzhynjDex]-\
-                        MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
-            ws2['Q4'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R4'] = round(partyFee, 2)
-            # 第5行数据
-            ws2['B5'] = round(JunList[gwgzDex], 2)
-            ws2['C5'] = round(JunList[xjgzDex], 2)
-            ws2['D5'] = round(JunList[zbDex], 2)
-            ws2['E5'] = round(JunList[shbfDex], 2)
-            ws2['F5'] = round(JunList[xlfDex], 2)
-            ws2['G5'] = round(JunList[shfDex], 2)
-            ws2['H5'] = round(JunList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I5'] = round(JunList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I5'] = round(float(bzgt), 2)
-            ws2['J5'] = round(JunList[jsheDex], 2)
-            ws2['K5'] = round(JunList[kgjjDex], 2)
-            ws2['L5'] = round(JunList[kzhynjDex], 2)
-            ws2['M5'] = round(JunList[kyxDex], 2)
-            ws2['N5'] = round(JunList[kshxDex], 2)
-            ws2['O5'] = round(JunList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+JunList[shfDex]+\
-                    JunList[xnbtDex]+JunList[gtDex])/JunList[srzj3Dex]*JunList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+JunList[shfDex]+\
-                    JunList[xnbtDex]+float(bzgt))/JunList[srzj3Dex]*JunList[ksh2Dex]
-            ws2['P5'] = round(tax, 2)
-            if isFindGt is True:
-                total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
-                    JunList[shfDex]+JunList[xnbtDex]+JunList[gtDex]-JunList[jsheDex]-JunList[kgjjDex]-JunList[kzhynjDex]-\
-                        JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
-            elif isFindGt is False:
-                total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
-                    JunList[shfDex]+JunList[xnbtDex]+float(bzgt)-JunList[jsheDex]-JunList[kgjjDex]-JunList[kzhynjDex]-\
-                        JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
-            ws2['Q5'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R5'] = round(partyFee, 2)
-        # 三季度
-        elif season == 3:
-            # 第3行数据
-            ws2['B3'] = round(JulList[gwgzDex], 2)
-            ws2['C3'] = round(JulList[xjgzDex], 2)
-            ws2['D3'] = round(JulList[zbDex], 2)
-            ws2['E3'] = round(JulList[shbfDex], 2)
-            ws2['F3'] = round(JulList[xlfDex], 2)
-            ws2['G3'] = round(JulList[shfDex], 2)
-            ws2['H3'] = round(JulList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I3'] = round(JulList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(JulList[jsheDex], 2)
-            ws2['K3'] = round(JulList[kgjjDex], 2)
-            ws2['L3'] = round(JulList[kzhynjDex], 2)
-            ws2['M3'] = round(JulList[kyxDex], 2)
-            ws2['N3'] = round(JulList[kshxDex], 2)
-            ws2['O3'] = round(JulList[kylxDex], 2)
-            if isFindGt is True:    
-                tax = (JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+JulList[shfDex]+\
-                    JulList[xnbtDex]+JulList[gtDex])/JulList[srzj3Dex]*JulList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+JulList[shfDex]+\
-                    JulList[xnbtDex]+float(bzgt))/JulList[srzj3Dex]*JulList[ksh2Dex]
-            ws2['P3'] = round(tax, 2)
-            if isFindGt is True:
-                total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
-                    JulList[shfDex]+JulList[xnbtDex]+JulList[gtDex]-JulList[jsheDex]-JulList[kgjjDex]-JulList[kzhynjDex]-\
-                        JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
-            elif isFindGt is False:
-                total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
-                    JulList[shfDex]+JulList[xnbtDex]+float(bzgt)-JulList[jsheDex]-JulList[kgjjDex]-JulList[kzhynjDex]-\
-                        JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
-            ws2['Q3'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R3'] = round(partyFee, 2)
-            # 第4行数据
-            ws2['B4'] = round(AugList[gwgzDex], 2)
-            ws2['C4'] = round(AugList[xjgzDex], 2)
-            ws2['D4'] = round(AugList[zbDex], 2)
-            ws2['E4'] = round(AugList[shbfDex], 2)
-            ws2['F4'] = round(AugList[xlfDex], 2)
-            ws2['G4'] = round(AugList[shfDex], 2)
-            ws2['H4'] = round(AugList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I4'] = round(AugList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I4'] = round(float(bzgt), 2)
-            ws2['J4'] = round(AugList[jsheDex], 2)
-            ws2['K4'] = round(AugList[kgjjDex], 2)
-            ws2['L4'] = round(AugList[kzhynjDex], 2)
-            ws2['M4'] = round(AugList[kyxDex], 2)
-            ws2['N4'] = round(AugList[kshxDex], 2)
-            ws2['O4'] = round(AugList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+AugList[shfDex]+\
-                    AugList[xnbtDex]+AugList[gtDex])/AugList[srzj3Dex]*AugList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+AugList[shfDex]+\
-                    AugList[xnbtDex]+float(bzgt))/AugList[srzj3Dex]*AugList[ksh2Dex]
-            ws2['P4'] = tax
-            if isFindGt is True:
-                total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
-                    AugList[shfDex]+AugList[xnbtDex]+AugList[gtDex]-AugList[jsheDex]-AugList[kgjjDex]-AugList[kzhynjDex]-\
-                        AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
-            elif isFindGt is False:
-                total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
-                    AugList[shfDex]+AugList[xnbtDex]+float(bzgt)-AugList[jsheDex]-AugList[kgjjDex]-AugList[kzhynjDex]-\
-                        AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
-            ws2['Q4'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R4'] = round(partyFee, 2)
-            # 第5行数据
-            ws2['B5'] = round(SepList[gwgzDex], 2)
-            ws2['C5'] = round(SepList[xjgzDex], 2)
-            ws2['D5'] = round(SepList[zbDex], 2)
-            ws2['E5'] = round(SepList[shbfDex], 2)
-            ws2['F5'] = round(SepList[xlfDex], 2)
-            ws2['G5'] = round(SepList[shfDex], 2)
-            ws2['H5'] = round(SepList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I5'] = round(SepList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I5'] = round(float(bzgt), 2)
-            ws2['J5'] = round(SepList[jsheDex], 2)
-            ws2['K5'] = round(SepList[kgjjDex], 2)
-            ws2['L5'] = round(SepList[kzhynjDex], 2)
-            ws2['M5'] = round(SepList[kyxDex], 2)
-            ws2['N5'] = round(SepList[kshxDex], 2)
-            ws2['O5'] = round(SepList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+SepList[shfDex]+\
-                    SepList[xnbtDex]+SepList[gtDex])/SepList[srzj3Dex]*SepList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+SepList[shfDex]+\
-                    SepList[xnbtDex]+float(bzgt))/SepList[srzj3Dex]*SepList[ksh2Dex]
-            ws2['P5'] = round(tax, 2)
-            if isFindGt is True:
-                total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
-                    SepList[shfDex]+SepList[xnbtDex]+SepList[gtDex]-SepList[jsheDex]-SepList[kgjjDex]-SepList[kzhynjDex]-\
-                        SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
-            elif isFindGt is False:
-                total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
-                    SepList[shfDex]+SepList[xnbtDex]+float(bzgt)-SepList[jsheDex]-SepList[kgjjDex]-SepList[kzhynjDex]-\
-                        SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
-            ws2['Q5'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R5'] = round(partyFee, 2)
-        # 四季度
-        elif season == 4:
-            # 第3行数据
-            ws2['B3'] = round(OctList[gwgzDex], 2)
-            ws2['C3'] = round(OctList[xjgzDex], 2)
-            ws2['D3'] = round(OctList[zbDex], 2)
-            ws2['E3'] = round(OctList[shbfDex], 2)
-            ws2['F3'] = round(OctList[xlfDex], 2)
-            ws2['G3'] = round(OctList[shfDex], 2)
-            ws2['H3'] = round(OctList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I3'] = round(OctList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(OctList[jsheDex], 2)
-            ws2['K3'] = round(OctList[kgjjDex], 2)
-            ws2['L3'] = round(OctList[kzhynjDex], 2)
-            ws2['M3'] = round(OctList[kyxDex], 2)
-            ws2['N3'] = round(OctList[kshxDex], 2)
-            ws2['O3'] = round(OctList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+OctList[shfDex]+\
-                    OctList[xnbtDex]+OctList[gtDex])/OctList[srzj3Dex]*OctList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+OctList[shfDex]+\
-                    OctList[xnbtDex]+float(bzgt))/OctList[srzj3Dex]*OctList[ksh2Dex]
-            ws2['P3'] = round(tax, 2)
-            if isFindGt is True:
-                total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
-                    OctList[shfDex]+OctList[xnbtDex]+OctList[gtDex]-OctList[jsheDex]-OctList[kgjjDex]-OctList[kzhynjDex]-\
-                        OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
-            elif isFindGt is False:
-                total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
-                    OctList[shfDex]+OctList[xnbtDex]+float(bzgt)-OctList[jsheDex]-OctList[kgjjDex]-OctList[kzhynjDex]-\
-                        OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
-            ws2['Q3'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R3'] = round(partyFee, 2)
-            # 第4行数据
-            ws2['B4'] = round(NovList[gwgzDex], 2)
-            ws2['C4'] = round(NovList[xjgzDex], 2)
-            ws2['D4'] = round(NovList[zbDex], 2)
-            ws2['E4'] = round(NovList[shbfDex], 2)
-            ws2['F4'] = round(NovList[xlfDex], 2)
-            ws2['G4'] = round(NovList[shfDex], 2)
-            ws2['H4'] = round(NovList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I4'] = round(NovList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I4'] = round(float(bzgt), 2)
-            ws2['J4'] = round(NovList[jsheDex], 2)
-            ws2['K4'] = round(NovList[kgjjDex], 2)
-            ws2['L4'] = round(NovList[kzhynjDex], 2)
-            ws2['M4'] = round(NovList[kyxDex], 2)
-            ws2['N4'] = round(NovList[kshxDex], 2)
-            ws2['O4'] = round(NovList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+NovList[shfDex]+\
-                    NovList[xnbtDex]+NovList[gtDex])/NovList[srzj3Dex]*NovList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+NovList[shfDex]+\
-                    NovList[xnbtDex]+float(bzgt))/NovList[srzj3Dex]*NovList[ksh2Dex]
-            ws2['P4'] = round(tax, 2)
-            if isFindGt is True:
-                total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
-                    NovList[shfDex]+NovList[xnbtDex]+NovList[gtDex]-NovList[jsheDex]-NovList[kgjjDex]-NovList[kzhynjDex]-\
-                        NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
-            elif isFindGt is False:
-                total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
-                    NovList[shfDex]+NovList[xnbtDex]+float(bzgt)-NovList[jsheDex]-NovList[kgjjDex]-NovList[kzhynjDex]-\
-                        NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
-            ws2['Q4'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R4'] = round(partyFee, 2)
-            # 第5行数据
-            ws2['B5'] = round(DecList[gwgzDex], 2)
-            ws2['C5'] = round(DecList[xjgzDex], 2)
-            ws2['D5'] = round(DecList[zbDex], 2)
-            ws2['E5'] = round(DecList[shbfDex], 2)
-            ws2['F5'] = round(DecList[xlfDex], 2)
-            ws2['G5'] = round(DecList[shfDex], 2)
-            ws2['H5'] = round(DecList[xnbtDex], 2)
-            if isFindGt is True:
-                ws2['I5'] = round(DecList[gtDex], 2)
-            elif isFindGt is False:
-                ws2['I5'] = round(float(bzgt), 2)
-            ws2['J5'] = round(DecList[jsheDex], 2)
-            ws2['K5'] = round(DecList[kgjjDex], 2)
-            ws2['L5'] = round(DecList[kzhynjDex], 2)
-            ws2['M5'] = round(DecList[kyxDex], 2)
-            ws2['N5'] = round(DecList[kshxDex], 2)
-            ws2['O5'] = round(DecList[kylxDex], 2)
-            if isFindGt is True:
-                tax = (DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+DecList[shfDex]+\
-                    DecList[xnbtDex]+DecList[gtDex])/DecList[srzj3Dex]*DecList[ksh2Dex]
-            elif isFindGt is False:
-                tax = (DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+DecList[shfDex]+\
-                    DecList[xnbtDex]+float(bzgt))/DecList[srzj3Dex]*DecList[ksh2Dex]
-            ws2['P5'] = round(tax, 2)
-            if isFindGt is True:
-                total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
-                    DecList[shfDex]+DecList[xnbtDex]+DecList[gtDex]-DecList[jsheDex]-DecList[kgjjDex]-DecList[kzhynjDex]-\
-                        DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
-            elif isFindGt is False:
-                total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
-                    DecList[shfDex]+DecList[xnbtDex]+float(bzgt)-DecList[jsheDex]-DecList[kgjjDex]-DecList[kzhynjDex]-\
-                        DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
-            ws2['Q5'] = round(total, 2)
-            if total <= 3000:
-                partyFee = total*0.005
-            elif total > 3000 and total <= 5000:
-                partyFee = total*0.01
-            elif total > 5000 and total <= 10000:
-                partyFee = total*0.015
-            elif total > 10000:
-                partyFee = total*0.02
-            ws2['R5'] = round(partyFee, 2)
+                ws2['Q4'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R4'] = round(partyFee, 2)
+                # ws2['S4'] = FebList[srzj3Dex]
+                # ws2['T4'] = FebList[ksh2Dex]
+                # 第5行数据
+                ws2['B5'] = round(MarList[gwgzDex], 2)
+                ws2['C5'] = round(MarList[xjgzDex], 2)
+                ws2['D5'] = round(MarList[zbDex], 2)
+                ws2['E5'] = round(MarList[shbfDex], 2)
+                ws2['F5'] = round(MarList[xlfDex], 2)
+                ws2['G5'] = round(MarList[shfDex], 2)
+                ws2['H5'] = round(MarList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I5'] = round(MarList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I5'] = round(float(bzgt), 2)
+                ws2['J5'] = round(MarList[jsheDex], 2)
+                ws2['K5'] = round(MarList[kgjjDex], 2)
+                ws2['L5'] = round(MarList[kzhynjDex], 2)
+                ws2['M5'] = round(MarList[kyxDex], 2)
+                ws2['N5'] = round(MarList[kshxDex], 2)
+                ws2['O5'] = round(MarList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+MarList[shfDex]+\
+                        MarList[xnbtDex]+MarList[gtDex])/MarList[srzj3Dex]*MarList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+MarList[shfDex]+\
+                        MarList[xnbtDex]+float(bzgt))/MarList[srzj3Dex]*MarList[ksh2Dex]
+                ws2['P5'] = round(tax, 2)
+                if isFindGt is True:
+                    total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
+                        MarList[shfDex]+MarList[xnbtDex]+MarList[gtDex]-MarList[jsheDex]-MarList[kgjjDex]-MarList[kzhynjDex]-\
+                            MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
+                        MarList[shfDex]+MarList[xnbtDex]+float(bzgt)-MarList[jsheDex]-MarList[kgjjDex]-MarList[kzhynjDex]-\
+                            MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
+                ws2['Q5'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R5'] = round(partyFee, 2)
+                # ws2['S5'] = MarList[srzj3Dex]
+                # ws2['T5'] = MarList[ksh2Dex]
+            # 二季度
+            elif season == 2:
+                # 第3行数据
+                ws2['B3'] = round(AprList[gwgzDex], 2)
+                ws2['C3'] = round(AprList[xjgzDex], 2)
+                ws2['D3'] = round(AprList[zbDex], 2)
+                ws2['E3'] = round(AprList[shbfDex], 2)
+                ws2['F3'] = round(AprList[xlfDex], 2)
+                ws2['G3'] = round(AprList[shfDex], 2)
+                ws2['H3'] = round(AprList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I3'] = round(AprList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I3'] = round(float(bzgt), 2)
+                ws2['J3'] = round(AprList[jsheDex], 2)
+                ws2['K3'] = round(AprList[kgjjDex], 2)
+                ws2['L3'] = round(AprList[kzhynjDex], 2)
+                ws2['M3'] = round(AprList[kyxDex], 2)
+                ws2['N3'] = round(AprList[kshxDex], 2)
+                ws2['O3'] = round(AprList[kylxDex], 2)
+                # ws2['S3'] = AprList[srzj3Dex]
+                # ws2['T3'] = AprList[ksh2Dex]
+                if isFindGt is True:
+                    tax = (AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+AprList[shfDex]+\
+                        AprList[xnbtDex]+AprList[gtDex])/AprList[srzj3Dex]*AprList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+AprList[shfDex]+\
+                        AprList[xnbtDex]+float(bzgt))/AprList[srzj3Dex]*AprList[ksh2Dex]
+                ws2['P3'] = round(tax, 2)
+                if isFindGt is True:
+                    total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
+                        AprList[shfDex]+AprList[xnbtDex]+AprList[gtDex]-AprList[jsheDex]-AprList[kgjjDex]-AprList[kzhynjDex]-\
+                            AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
+                        AprList[shfDex]+AprList[xnbtDex]+float(bzgt)-AprList[jsheDex]-AprList[kgjjDex]-AprList[kzhynjDex]-\
+                            AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
+                ws2['Q3'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R3'] = round(partyFee, 2)
+                # 第4行数据
+                ws2['B4'] = round(MayList[gwgzDex], 2)
+                ws2['C4'] = round(MayList[xjgzDex], 2)
+                ws2['D4'] = round(MayList[zbDex], 2)
+                ws2['E4'] = round(MayList[shbfDex], 2)
+                ws2['F4'] = round(MayList[xlfDex], 2)
+                ws2['G4'] = round(MayList[shfDex], 2)
+                ws2['H4'] = round(MayList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I4'] = round(MayList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I4'] = round(float(bzgt), 2)
+                ws2['J4'] = round(MayList[jsheDex], 2)
+                ws2['K4'] = round(MayList[kgjjDex], 2)
+                ws2['L4'] = round(MayList[kzhynjDex], 2)
+                ws2['M4'] = round(MayList[kyxDex], 2)
+                ws2['N4'] = round(MayList[kshxDex], 2)
+                ws2['O4'] = round(MayList[kylxDex], 2)
+                # ws2['S4'] = MayList[srzj3Dex]
+                # ws2['T4'] = MayList[ksh2Dex]
+                if isFindGt is True:
+                    tax = (MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+MayList[shfDex]+\
+                        MayList[xnbtDex]+MayList[gtDex])/MayList[srzj3Dex]*MayList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+MayList[shfDex]+\
+                        MayList[xnbtDex]+float(bzgt))/MayList[srzj3Dex]*MayList[ksh2Dex]
+                ws2['P4'] = round(tax,2)
+                if isFindGt is True:
+                    total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
+                        MayList[shfDex]+MayList[xnbtDex]+MayList[gtDex]-MayList[jsheDex]-MayList[kgjjDex]-MayList[kzhynjDex]-\
+                            MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
+                        MayList[shfDex]+MayList[xnbtDex]+float(bzgt)-MayList[jsheDex]-MayList[kgjjDex]-MayList[kzhynjDex]-\
+                            MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
+                ws2['Q4'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R4'] = round(partyFee, 2)
+                # 第5行数据
+                ws2['B5'] = round(JunList[gwgzDex], 2)
+                ws2['C5'] = round(JunList[xjgzDex], 2)
+                ws2['D5'] = round(JunList[zbDex], 2)
+                ws2['E5'] = round(JunList[shbfDex], 2)
+                ws2['F5'] = round(JunList[xlfDex], 2)
+                ws2['G5'] = round(JunList[shfDex], 2)
+                ws2['H5'] = round(JunList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I5'] = round(JunList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I5'] = round(float(bzgt), 2)
+                ws2['J5'] = round(JunList[jsheDex], 2)
+                ws2['K5'] = round(JunList[kgjjDex], 2)
+                ws2['L5'] = round(JunList[kzhynjDex], 2)
+                ws2['M5'] = round(JunList[kyxDex], 2)
+                ws2['N5'] = round(JunList[kshxDex], 2)
+                ws2['O5'] = round(JunList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+JunList[shfDex]+\
+                        JunList[xnbtDex]+JunList[gtDex])/JunList[srzj3Dex]*JunList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+JunList[shfDex]+\
+                        JunList[xnbtDex]+float(bzgt))/JunList[srzj3Dex]*JunList[ksh2Dex]
+                ws2['P5'] = round(tax, 2)
+                if isFindGt is True:
+                    total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
+                        JunList[shfDex]+JunList[xnbtDex]+JunList[gtDex]-JunList[jsheDex]-JunList[kgjjDex]-JunList[kzhynjDex]-\
+                            JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
+                        JunList[shfDex]+JunList[xnbtDex]+float(bzgt)-JunList[jsheDex]-JunList[kgjjDex]-JunList[kzhynjDex]-\
+                            JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
+                ws2['Q5'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R5'] = round(partyFee, 2)
+            # 三季度
+            elif season == 3:
+                # 第3行数据
+                ws2['B3'] = round(JulList[gwgzDex], 2)
+                ws2['C3'] = round(JulList[xjgzDex], 2)
+                ws2['D3'] = round(JulList[zbDex], 2)
+                ws2['E3'] = round(JulList[shbfDex], 2)
+                ws2['F3'] = round(JulList[xlfDex], 2)
+                ws2['G3'] = round(JulList[shfDex], 2)
+                ws2['H3'] = round(JulList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I3'] = round(JulList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I3'] = round(float(bzgt), 2)
+                ws2['J3'] = round(JulList[jsheDex], 2)
+                ws2['K3'] = round(JulList[kgjjDex], 2)
+                ws2['L3'] = round(JulList[kzhynjDex], 2)
+                ws2['M3'] = round(JulList[kyxDex], 2)
+                ws2['N3'] = round(JulList[kshxDex], 2)
+                ws2['O3'] = round(JulList[kylxDex], 2)
+                if isFindGt is True:    
+                    tax = (JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+JulList[shfDex]+\
+                        JulList[xnbtDex]+JulList[gtDex])/JulList[srzj3Dex]*JulList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+JulList[shfDex]+\
+                        JulList[xnbtDex]+float(bzgt))/JulList[srzj3Dex]*JulList[ksh2Dex]
+                ws2['P3'] = round(tax, 2)
+                if isFindGt is True:
+                    total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
+                        JulList[shfDex]+JulList[xnbtDex]+JulList[gtDex]-JulList[jsheDex]-JulList[kgjjDex]-JulList[kzhynjDex]-\
+                            JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
+                        JulList[shfDex]+JulList[xnbtDex]+float(bzgt)-JulList[jsheDex]-JulList[kgjjDex]-JulList[kzhynjDex]-\
+                            JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
+                ws2['Q3'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R3'] = round(partyFee, 2)
+                # 第4行数据
+                ws2['B4'] = round(AugList[gwgzDex], 2)
+                ws2['C4'] = round(AugList[xjgzDex], 2)
+                ws2['D4'] = round(AugList[zbDex], 2)
+                ws2['E4'] = round(AugList[shbfDex], 2)
+                ws2['F4'] = round(AugList[xlfDex], 2)
+                ws2['G4'] = round(AugList[shfDex], 2)
+                ws2['H4'] = round(AugList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I4'] = round(AugList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I4'] = round(float(bzgt), 2)
+                ws2['J4'] = round(AugList[jsheDex], 2)
+                ws2['K4'] = round(AugList[kgjjDex], 2)
+                ws2['L4'] = round(AugList[kzhynjDex], 2)
+                ws2['M4'] = round(AugList[kyxDex], 2)
+                ws2['N4'] = round(AugList[kshxDex], 2)
+                ws2['O4'] = round(AugList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+AugList[shfDex]+\
+                        AugList[xnbtDex]+AugList[gtDex])/AugList[srzj3Dex]*AugList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+AugList[shfDex]+\
+                        AugList[xnbtDex]+float(bzgt))/AugList[srzj3Dex]*AugList[ksh2Dex]
+                ws2['P4'] = tax
+                if isFindGt is True:
+                    total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
+                        AugList[shfDex]+AugList[xnbtDex]+AugList[gtDex]-AugList[jsheDex]-AugList[kgjjDex]-AugList[kzhynjDex]-\
+                            AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
+                        AugList[shfDex]+AugList[xnbtDex]+float(bzgt)-AugList[jsheDex]-AugList[kgjjDex]-AugList[kzhynjDex]-\
+                            AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
+                ws2['Q4'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R4'] = round(partyFee, 2)
+                # 第5行数据
+                ws2['B5'] = round(SepList[gwgzDex], 2)
+                ws2['C5'] = round(SepList[xjgzDex], 2)
+                ws2['D5'] = round(SepList[zbDex], 2)
+                ws2['E5'] = round(SepList[shbfDex], 2)
+                ws2['F5'] = round(SepList[xlfDex], 2)
+                ws2['G5'] = round(SepList[shfDex], 2)
+                ws2['H5'] = round(SepList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I5'] = round(SepList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I5'] = round(float(bzgt), 2)
+                ws2['J5'] = round(SepList[jsheDex], 2)
+                ws2['K5'] = round(SepList[kgjjDex], 2)
+                ws2['L5'] = round(SepList[kzhynjDex], 2)
+                ws2['M5'] = round(SepList[kyxDex], 2)
+                ws2['N5'] = round(SepList[kshxDex], 2)
+                ws2['O5'] = round(SepList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+SepList[shfDex]+\
+                        SepList[xnbtDex]+SepList[gtDex])/SepList[srzj3Dex]*SepList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+SepList[shfDex]+\
+                        SepList[xnbtDex]+float(bzgt))/SepList[srzj3Dex]*SepList[ksh2Dex]
+                ws2['P5'] = round(tax, 2)
+                if isFindGt is True:
+                    total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
+                        SepList[shfDex]+SepList[xnbtDex]+SepList[gtDex]-SepList[jsheDex]-SepList[kgjjDex]-SepList[kzhynjDex]-\
+                            SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
+                        SepList[shfDex]+SepList[xnbtDex]+float(bzgt)-SepList[jsheDex]-SepList[kgjjDex]-SepList[kzhynjDex]-\
+                            SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
+                ws2['Q5'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R5'] = round(partyFee, 2)
+            # 四季度
+            elif season == 4:
+                # 第3行数据
+                ws2['B3'] = round(OctList[gwgzDex], 2)
+                ws2['C3'] = round(OctList[xjgzDex], 2)
+                ws2['D3'] = round(OctList[zbDex], 2)
+                ws2['E3'] = round(OctList[shbfDex], 2)
+                ws2['F3'] = round(OctList[xlfDex], 2)
+                ws2['G3'] = round(OctList[shfDex], 2)
+                ws2['H3'] = round(OctList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I3'] = round(OctList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I3'] = round(float(bzgt), 2)
+                ws2['J3'] = round(OctList[jsheDex], 2)
+                ws2['K3'] = round(OctList[kgjjDex], 2)
+                ws2['L3'] = round(OctList[kzhynjDex], 2)
+                ws2['M3'] = round(OctList[kyxDex], 2)
+                ws2['N3'] = round(OctList[kshxDex], 2)
+                ws2['O3'] = round(OctList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+OctList[shfDex]+\
+                        OctList[xnbtDex]+OctList[gtDex])/OctList[srzj3Dex]*OctList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+OctList[shfDex]+\
+                        OctList[xnbtDex]+float(bzgt))/OctList[srzj3Dex]*OctList[ksh2Dex]
+                ws2['P3'] = round(tax, 2)
+                if isFindGt is True:
+                    total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
+                        OctList[shfDex]+OctList[xnbtDex]+OctList[gtDex]-OctList[jsheDex]-OctList[kgjjDex]-OctList[kzhynjDex]-\
+                            OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
+                        OctList[shfDex]+OctList[xnbtDex]+float(bzgt)-OctList[jsheDex]-OctList[kgjjDex]-OctList[kzhynjDex]-\
+                            OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
+                ws2['Q3'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R3'] = round(partyFee, 2)
+                # 第4行数据
+                ws2['B4'] = round(NovList[gwgzDex], 2)
+                ws2['C4'] = round(NovList[xjgzDex], 2)
+                ws2['D4'] = round(NovList[zbDex], 2)
+                ws2['E4'] = round(NovList[shbfDex], 2)
+                ws2['F4'] = round(NovList[xlfDex], 2)
+                ws2['G4'] = round(NovList[shfDex], 2)
+                ws2['H4'] = round(NovList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I4'] = round(NovList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I4'] = round(float(bzgt), 2)
+                ws2['J4'] = round(NovList[jsheDex], 2)
+                ws2['K4'] = round(NovList[kgjjDex], 2)
+                ws2['L4'] = round(NovList[kzhynjDex], 2)
+                ws2['M4'] = round(NovList[kyxDex], 2)
+                ws2['N4'] = round(NovList[kshxDex], 2)
+                ws2['O4'] = round(NovList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+NovList[shfDex]+\
+                        NovList[xnbtDex]+NovList[gtDex])/NovList[srzj3Dex]*NovList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+NovList[shfDex]+\
+                        NovList[xnbtDex]+float(bzgt))/NovList[srzj3Dex]*NovList[ksh2Dex]
+                ws2['P4'] = round(tax, 2)
+                if isFindGt is True:
+                    total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
+                        NovList[shfDex]+NovList[xnbtDex]+NovList[gtDex]-NovList[jsheDex]-NovList[kgjjDex]-NovList[kzhynjDex]-\
+                            NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
+                        NovList[shfDex]+NovList[xnbtDex]+float(bzgt)-NovList[jsheDex]-NovList[kgjjDex]-NovList[kzhynjDex]-\
+                            NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
+                ws2['Q4'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R4'] = round(partyFee, 2)
+                # 第5行数据
+                ws2['B5'] = round(DecList[gwgzDex], 2)
+                ws2['C5'] = round(DecList[xjgzDex], 2)
+                ws2['D5'] = round(DecList[zbDex], 2)
+                ws2['E5'] = round(DecList[shbfDex], 2)
+                ws2['F5'] = round(DecList[xlfDex], 2)
+                ws2['G5'] = round(DecList[shfDex], 2)
+                ws2['H5'] = round(DecList[xnbtDex], 2)
+                if isFindGt is True:
+                    ws2['I5'] = round(DecList[gtDex], 2)
+                elif isFindGt is False:
+                    ws2['I5'] = round(float(bzgt), 2)
+                ws2['J5'] = round(DecList[jsheDex], 2)
+                ws2['K5'] = round(DecList[kgjjDex], 2)
+                ws2['L5'] = round(DecList[kzhynjDex], 2)
+                ws2['M5'] = round(DecList[kyxDex], 2)
+                ws2['N5'] = round(DecList[kshxDex], 2)
+                ws2['O5'] = round(DecList[kylxDex], 2)
+                if isFindGt is True:
+                    tax = (DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+DecList[shfDex]+\
+                        DecList[xnbtDex]+DecList[gtDex])/DecList[srzj3Dex]*DecList[ksh2Dex]
+                elif isFindGt is False:
+                    tax = (DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+DecList[shfDex]+\
+                        DecList[xnbtDex]+float(bzgt))/DecList[srzj3Dex]*DecList[ksh2Dex]
+                ws2['P5'] = round(tax, 2)
+                if isFindGt is True:
+                    total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
+                        DecList[shfDex]+DecList[xnbtDex]+DecList[gtDex]-DecList[jsheDex]-DecList[kgjjDex]-DecList[kzhynjDex]-\
+                            DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
+                elif isFindGt is False:
+                    total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
+                        DecList[shfDex]+DecList[xnbtDex]+float(bzgt)-DecList[jsheDex]-DecList[kgjjDex]-DecList[kzhynjDex]-\
+                            DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
+                ws2['Q5'] = round(total, 2)
+                if total <= 3000:
+                    partyFee = total*0.005
+                elif total > 3000 and total <= 5000:
+                    partyFee = total*0.01
+                elif total > 5000 and total <= 10000:
+                    partyFee = total*0.015
+                elif total > 10000:
+                    partyFee = total*0.02
+                ws2['R5'] = round(partyFee, 2)
+        except UnboundLocalError:
+            QtWidgets.QMessageBox.information(self, "错误提示", "您必须从1月份开始导出直到当前月份的工资数据,这也是财务"\
+            "系统的默认设置，您无须在导出工资数据时手动更改月份。本程序会自动识别当前时间,智能选取当前季度的月份计算党费，请您"\
+            "不要自己乱改设置。本次生成党费缴费表失败,请您按要求重新导出工资数据后再试!\n点击YES后,程序将自动退出", QtWidgets.QMessageBox.Yes)
+            exit()
         totalPartyFee = round(ws2['R3'].value + ws2['R4'].value + ws2['R5'].value, 2)
         ws2['B6'] = totalPartyFee
         ws2['E9'] = '应交总金额：'+str(totalPartyFee)+'元'
