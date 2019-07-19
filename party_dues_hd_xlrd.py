@@ -32,12 +32,20 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         filepath = filename
         self.calculateButton.setEnabled(True)
     
-    def text2float(x):
-        x = str(x)
-        x = float(x.replace(",",""))
-        return x
-
     def calculation(self):
+        def text2float(x):
+            x = str(x)
+            try:
+                x = float(x.replace(",",""))
+            except ValueError:
+                pass
+            return x
+
+        def list2float(x):
+            for i in range(len(x)):
+                x[i] = text2float(x[i])
+            return x
+
         unitName, okPressed = QtWidgets.QInputDialog.getText(self, "单位名称", "请输入您的单位名称", QtWidgets.QLineEdit.Normal, "工商管理学院")
         # 获取当前年份，判定季度 
         year = datetime.datetime.now().strftime('%Y')
@@ -68,21 +76,25 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             cellMonth2 = '11'
             cellMonth3 = '12'
         xlspath = filepath
+        current_dir = os.path.dirname(os.path.abspath(xlspath))
         data = xlrd.open_workbook(xlspath)
         table = data.sheets()[0]
         dueNameList = table.col_values(0)
-        JanList = table.col_values(1)
-        FebList = table.col_values(2)
-        MarList = table.col_values(3)
-        AprList = table.col_values(4)
-        MayList = table.col_values(5)
-        JunList = table.col_values(6)
-        JulList = table.col_values(7)
-        AugList = table.col_values(8)
-        SepList = table.col_values(9)
-        OctList = table.col_values(10)
-        NovList = table.col_values(11)
-        DecList = table.col_values(12)
+        try:
+            JanList = list2float(table.col_values(1))
+            FebList = list2float(table.col_values(2))
+            MarList = list2float(table.col_values(3))
+            AprList = list2float(table.col_values(4))
+            MayList = list2float(table.col_values(5))
+            JunList = list2float(table.col_values(6))
+            JulList = list2float(table.col_values(7))
+            AugList = list2float(table.col_values(8))
+            SepList = list2float(table.col_values(9))
+            OctList = list2float(table.col_values(10))
+            NovList = list2float(table.col_values(11))
+            DecList = list2float(table.col_values(12))
+        except IndexError:
+            pass
         # 缴费项目索引
         gwgzDex = dueNameList.index('岗位工资')
         xjgzDex = dueNameList.index('薪级工资')
@@ -218,23 +230,23 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 一季度
         if season == 1:
             # 第3行数据
-            ws2['B3'] = round(text2float(JanList[gwgzDex]), 2)
-            ws2['C3'] = round(text2float(JanList[xjgzDex]), 2)
-            ws2['D3'] = round(text2float(JanList[zbDex]), 2)
-            ws2['E3'] = round(text2float(JanList[shbfDex]), 2)
-            ws2['F3'] = round(text2float(JanList[xlfDex]), 2)
-            ws2['G3'] = round(text2float(JanList[shfDex]), 2)
-            ws2['H3'] = round(text2float(JanList[xnbtDex]), 2)
+            ws2['B3'] = round(JanList[gwgzDex], 2)
+            ws2['C3'] = round(JanList[xjgzDex], 2)
+            ws2['D3'] = round(JanList[zbDex], 2)
+            ws2['E3'] = round(JanList[shbfDex], 2)
+            ws2['F3'] = round(JanList[xlfDex], 2)
+            ws2['G3'] = round(JanList[shfDex], 2)
+            ws2['H3'] = round(JanList[xnbtDex], 2)
             if isFindGt is True:
                 ws2['I3'] = round(text2float(JanList[gtDex]), 2)
             elif isFindGt is False:
                 ws2['I3'] = round(float(bzgt), 2)
-            ws2['J3'] = round(text2float(JanList[jsheDex]), 2)
-            ws2['K3'] = round(text2float(JanList[kgjjDex]), 2)
-            ws2['L3'] = round(text2float(JanList[kzhynjDex]), 2)
-            ws2['M3'] = round(text2float(JanList[kyxDex]), 2)
-            ws2['N3'] = round(text2float(JanList[kshxDex]), 2)
-            ws2['O3'] = round(text2float(JanList[kylxDex]), 2)
+            ws2['J3'] = round(JanList[jsheDex], 2)
+            ws2['K3'] = round(JanList[kgjjDex], 2)
+            ws2['L3'] = round(JanList[kzhynjDex], 2)
+            ws2['M3'] = round(JanList[kyxDex], 2)
+            ws2['N3'] = round(JanList[kshxDex], 2)
+            ws2['O3'] = round(JanList[kylxDex], 2)
             if isFindGt is True:
                 tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
                     JanList[xnbtDex]+JanList[gtDex])/JanList[srzj3Dex]*JanList[ksh2Dex]
@@ -756,7 +768,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ws2.page_setup.paperSize = ws2.PAPERSIZE_A4
         # time.sleep(2)
         partyFeeName = str(year)+'年第'+str(season)+'季度_应缴党费.xlsx'
-        wb2.save(filename = partyFeeName)
+        wb2.save(current_dir + '/' + partyFeeName)
         # print()
         # print('正在生成应交党费数据...')
         # time.sleep(2)
