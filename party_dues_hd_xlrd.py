@@ -62,19 +62,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             cellMonth1 = '10'
             cellMonth2 = '11'
             cellMonth3 = '12'
-        # time.sleep(2)
-        # salaryPath = filepath
-        # 转换为xlsx文件
-        # xlspath = os.path.abspath(salaryPath) 
         xlspath = filepath
-        # xlsxpath = xlspath + 'x'
-        # if os.path.exists(xlsxpath):
-        #     os.remove(xlsxpath)
-        # excel = win32.gencache.EnsureDispatch('Excel.Application')
-        # wb = excel.Workbooks.Open(xlspath)
-        # wb.SaveAs(xlsxpath, FileFormat=51)    # FileFormat = 51 is for .xlsx extension
-        # wb.Close()                               # FileFormat = 56 is for .xls extension
-        # 调整格式
         data = xlrd.open_workbook(xlspath)
         table = data.sheets()[0]
         # 单元格文本转换为数字
