@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 from Ui_party_dues_gui_hd import Ui_MainWindow
 import sys
 import os
@@ -8,9 +8,6 @@ import openpyxl
 import xlrd
 import time
 from openpyxl.styles import Font, colors, Border, Side, Alignment, PatternFill
-
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
 
 class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
@@ -783,7 +780,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"         #高分辨率支持
     app = QtWidgets.QApplication(sys.argv)
-    app.setAttribute(Qt.AA_EnableHighDpiScaling)            #高分辨率支持
+    app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)            #高分辨率支持
     window = mywindow()
     window.show()
     sys.exit(app.exec_())
