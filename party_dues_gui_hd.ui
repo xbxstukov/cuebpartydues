@@ -23,10 +23,14 @@
   </property>
   <property name="windowIcon">
    <iconset>
+<<<<<<< HEAD
     <normaloff>party.ico</normaloff>party.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
+=======
+    <normaloff>communist.ico</normaloff>communist.ico</iconset>
+>>>>>>> a6d6ed9b86739ea42bcf03d6f2f662273f2cedbb
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="calculateButton">
@@ -62,10 +66,10 @@
    <widget class="QLabel" name="aboutLabel">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>110</x>
       <y>180</y>
-      <width>321</width>
-      <height>39</height>
+      <width>361</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -74,7 +78,7 @@
      </font>
     </property>
     <property name="text">
-     <string>作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn</string>
+     <string>作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn </string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">

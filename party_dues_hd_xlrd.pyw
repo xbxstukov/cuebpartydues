@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore, QtGui
 from Ui_party_dues_gui_hd import Ui_MainWindow
 import sys
 import os
@@ -7,10 +7,8 @@ import sys
 import openpyxl
 import xlrd
 import time
+import icon_qr
 from openpyxl.styles import Font, colors, Border, Side, Alignment, PatternFill
-
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
 
 class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
@@ -21,6 +19,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.importButton.clicked.connect(self.fileSelect)
         self.actionImport.triggered.connect(self.fileSelect)
         self.calculateButton.clicked.connect(self.calculation)
+        self.setWindowIcon(QtGui.QIcon(':/communist.png'))
 
     def fileSelect(self):
         filename, filetype = QtWidgets.QFileDialog.getOpenFileName(self,'选择工资文件','','Excel 2003文件(*.xls)')
@@ -783,7 +782,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"         #高分辨率支持
     app = QtWidgets.QApplication(sys.argv)
-    app.setAttribute(Qt.AA_EnableHighDpiScaling)            #高分辨率支持
+    app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)            #高分辨率支持
     window = mywindow()
     window.show()
     sys.exit(app.exec_())

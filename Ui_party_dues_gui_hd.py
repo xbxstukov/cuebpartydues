@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\workspace\cuebpartydues\party_dues_gui_hd.ui'
+# Form implementation generated from reading ui file 'g:\workspace\cuebpartydues\party_dues_gui_hd.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -14,7 +14,7 @@ class Ui_MainWindow(object):
         MainWindow.setEnabled(True)
         MainWindow.resize(581, 234)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../Users/xbx/Desktop/party.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("communist.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(130, 180, 321, 39))
+        self.aboutLabel.setGeometry(QtCore.QRect(110, 180, 361, 41))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "CUEB教师党费计算器"))
         self.calculateButton.setText(_translate("MainWindow", "生成缴费表"))
-        self.aboutLabel.setText(_translate("MainWindow", "作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn"))
+        self.aboutLabel.setText(_translate("MainWindow", "作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn "))
         self.importButton.setText(_translate("MainWindow", "导入工资文件"))
         self.filepathLabel.setText(_translate("MainWindow", "工资文件路径："))
         self.welcomeLabel.setText(_translate("MainWindow", "欢迎使用CUEB教师党费计算器！"))
