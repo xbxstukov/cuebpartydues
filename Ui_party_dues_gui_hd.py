@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\xbx\Desktop\pack\party_dues_gui_hd.ui'
+# Form implementation generated from reading ui file 'g:\workspace\cuebpartydues\party_dues_gui_hd.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(130, 180, 331, 39))
+        self.aboutLabel.setGeometry(QtCore.QRect(130, 180, 351, 39))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
