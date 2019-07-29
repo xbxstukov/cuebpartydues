@@ -13,12 +13,20 @@
     <height>234</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>CUEB教师党费计算器</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../Users/xbx/Desktop/party.ico</normaloff>../../Users/xbx/Desktop/party.ico</iconset>
+    <normaloff>party.ico</normaloff>party.ico</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="calculateButton">
