@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(130, 180, 351, 39))
+        self.aboutLabel.setGeometry(QtCore.QRect(120, 180, 361, 41))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
