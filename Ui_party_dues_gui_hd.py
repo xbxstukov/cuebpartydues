@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.calculateButton.setAutoDefault(False)
         self.calculateButton.setObjectName("calculateButton")
         self.aboutLabel = QtWidgets.QLabel(self.centralwidget)
-        self.aboutLabel.setGeometry(QtCore.QRect(120, 180, 361, 41))
+        self.aboutLabel.setGeometry(QtCore.QRect(110, 180, 361, 41))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.aboutLabel.setFont(font)
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "CUEB教师党费计算器"))
         self.calculateButton.setText(_translate("MainWindow", "生成缴费表"))
-        self.aboutLabel.setText(_translate("MainWindow", "作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn"))
+        self.aboutLabel.setText(_translate("MainWindow", "作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn "))
         self.importButton.setText(_translate("MainWindow", "导入工资文件"))
         self.filepathLabel.setText(_translate("MainWindow", "工资文件路径："))
         self.welcomeLabel.setText(_translate("MainWindow", "欢迎使用CUEB教师党费计算器！"))
