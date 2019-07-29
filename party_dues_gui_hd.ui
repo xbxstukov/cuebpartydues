@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../Users/xbx/Desktop/party.ico</normaloff>../../Users/xbx/Desktop/party.ico</iconset>
+    <normaloff>party.ico</normaloff>party.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="calculateButton">
