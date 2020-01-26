@@ -23,14 +23,10 @@
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
     <normaloff>party.ico</normaloff>party.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
-=======
-    <normaloff>communist.ico</normaloff>communist.ico</iconset>
->>>>>>> a6d6ed9b86739ea42bcf03d6f2f662273f2cedbb
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="calculateButton">
