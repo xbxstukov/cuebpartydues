@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>234</height>
+    <width>742</width>
+    <height>669</height>
    </rect>
   </property>
   <property name="font">
@@ -19,11 +19,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>CUEB教师党费计算器</string>
+   <string>CUEB教职工党费计算器</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>party.ico</normaloff>party.ico</iconset>
+    <normaloff>G:/workspace/cuebpartydues/party.ico</normaloff>G:/workspace/cuebpartydues/party.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -35,7 +35,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>500</x>
       <y>130</y>
       <width>141</width>
       <height>31</height>
@@ -44,6 +44,7 @@
     <property name="font">
      <font>
       <family>微软雅黑</family>
+      <stylestrategy>PreferAntialias</stylestrategy>
      </font>
     </property>
     <property name="text">
@@ -62,9 +63,9 @@
    <widget class="QLabel" name="aboutLabel">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>180</y>
-      <width>361</width>
+      <x>210</x>
+      <y>630</y>
+      <width>341</width>
       <height>41</height>
      </rect>
     </property>
@@ -82,7 +83,7 @@
      <rect>
       <x>120</x>
       <y>70</y>
-      <width>319</width>
+      <width>461</width>
       <height>31</height>
      </rect>
     </property>
@@ -95,7 +96,7 @@
    <widget class="QPushButton" name="importButton">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>600</x>
       <y>70</y>
       <width>111</width>
       <height>31</height>
@@ -104,6 +105,7 @@
     <property name="font">
      <font>
       <family>微软雅黑</family>
+      <stylestrategy>PreferAntialias</stylestrategy>
      </font>
     </property>
     <property name="text">
@@ -113,7 +115,7 @@
    <widget class="QLabel" name="filepathLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>60</y>
       <width>91</width>
       <height>51</height>
@@ -122,6 +124,7 @@
     <property name="font">
      <font>
       <family>微软雅黑</family>
+      <stylestrategy>PreferAntialias</stylestrategy>
      </font>
     </property>
     <property name="text">
@@ -131,9 +134,9 @@
    <widget class="QLabel" name="welcomeLabel">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>240</x>
       <y>10</y>
-      <width>241</width>
+      <width>261</width>
       <height>49</height>
      </rect>
     </property>
@@ -143,10 +146,11 @@
       <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
      </font>
     </property>
     <property name="text">
-     <string>欢迎使用CUEB教师党费计算器！</string>
+     <string>欢迎使用CUEB教职工党费计算器！</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -157,6 +161,401 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="GTBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>721</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>手动选择岗贴标准</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>681</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>15</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>10</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="TeachingPosition">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>教学岗位</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="ManagementPosition">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>党政管理岗位</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QRadioButton" name="OtherSpecialtyPosition">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>其他专业技术岗位</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QListWidget" name="TeachingList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>助教二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>助教一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授四级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授一级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QListWidget" name="ManagementList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="isWrapping" stdset="0">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>办事员</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>科员，工作年限10年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>科员，工作年限10年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>科员，工作年限25年（含）以上；
+副科级，工作年限10年以下</string>
+         </property>
+         <property name="font">
+          <font>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="textAlignment">
+          <set>AlignLeading|AlignVCenter</set>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副科级，工作年限10年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副科级，工作年限25年（含）以上；
+正科级，工作年限10年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>正科级，工作年限10年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>正科级，工作年限25年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级6年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级6年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级12年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级6年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级6年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级12年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>党委常委/校长助理</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副校级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>正校级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QListWidget" name="OtherSpecialtyList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>其他专业技术十三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术九级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术八级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术七级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术六级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术五级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术四级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术三级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>120</y>
+      <width>371</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="AutoGT">
+       <property name="font">
+        <font>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="text">
+        <string>根据工资文件内岗贴自动计算</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="ManualGT">
+       <property name="font">
+        <font>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="text">
+        <string>手动选择岗贴标准</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <action name="actionImport">
@@ -174,5 +573,390 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementPosition</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>405</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AutoGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>GTBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingPosition</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyPosition</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>557</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>581</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>454</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>524</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>466</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>518</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>143</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>572</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>395</x>
+     <y>265</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>534</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>286</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>553</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AutoGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AutoGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AutoGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>clearSelection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>591</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>GTBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>437</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementPosition</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
