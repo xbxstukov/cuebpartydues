@@ -386,8 +386,8 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 elif total > 10000:
                     partyFee = total*0.02
                 ws2['R3'] = round(partyFee, 2)
-                ws2['S3'] = JanList[srzj3Dex]
-                ws2['T3'] = JanList[ksh2Dex]
+                # ws2['S3'] = JanList[srzj3Dex]
+                # ws2['T3'] = JanList[ksh2Dex]
                 # 第4行数据
                 ws2['B4'] = round(FebList[gwgzDex], 2)
                 ws2['C4'] = round(FebList[xjgzDex], 2)
