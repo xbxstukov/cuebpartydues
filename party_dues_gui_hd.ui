@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
-    <height>669</height>
+    <width>931</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="font">
@@ -35,9 +35,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>770</x>
       <y>130</y>
-      <width>141</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -63,9 +63,9 @@
    <widget class="QLabel" name="aboutLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>630</y>
-      <width>341</width>
+      <x>290</x>
+      <y>600</y>
+      <width>351</width>
       <height>41</height>
      </rect>
     </property>
@@ -75,7 +75,7 @@
      </font>
     </property>
     <property name="text">
-     <string>作者：许博祥 单位：工商管理学院 邮箱：xbx@cueb.edu.cn </string>
+     <string>作者：许博祥   单位：工商管理学院   邮箱：xbx@cueb.edu.cn </string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
@@ -83,7 +83,7 @@
      <rect>
       <x>120</x>
       <y>70</y>
-      <width>461</width>
+      <width>621</width>
       <height>31</height>
      </rect>
     </property>
@@ -96,9 +96,9 @@
    <widget class="QPushButton" name="importButton">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>770</x>
       <y>70</y>
-      <width>111</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -134,7 +134,7 @@
    <widget class="QLabel" name="welcomeLabel">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>330</x>
       <y>10</y>
       <width>261</width>
       <height>49</height>
@@ -166,21 +166,37 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
-      <width>721</width>
-      <height>451</height>
+      <y>190</y>
+      <width>911</width>
+      <height>421</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
     </property>
     <property name="title">
      <string>手动选择岗贴标准</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>20</y>
-       <width>681</width>
-       <height>421</height>
+       <width>891</width>
+       <height>401</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -202,7 +218,167 @@
       <property name="verticalSpacing">
        <number>10</number>
       </property>
-      <item row="0" column="0">
+      <item row="1" column="1">
+       <widget class="QListWidget" name="TeachingList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="currentRow">
+         <number>9</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>教授一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>教授四级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副教授三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>讲师三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>助教一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>助教二级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QListWidget" name="OtherSpecialtyList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="currentRow">
+         <number>10</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>其他专业技术三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术四级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术五级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术六级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术七级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术八级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术九级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十三级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QRadioButton" name="OtherSpecialtyPosition">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>其他专业技术岗位</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
        <widget class="QRadioButton" name="TeachingPosition">
         <property name="enabled">
          <bool>false</bool>
@@ -224,31 +400,61 @@
         <property name="checkable">
          <bool>true</bool>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QRadioButton" name="ManagementPosition">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="font">
-         <font>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="text">
-         <string>党政管理岗位</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
         <property name="checked">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QRadioButton" name="OtherSpecialtyPosition">
+      <item row="1" column="5">
+       <widget class="QListWidget" name="workerList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="currentRow">
+         <number>6</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>技师</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>高级工，工作年限30年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>高级工，工作年限20年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>高级工，工作年限20年以下；
+中级工，工作年限30年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>中级工，工作年限20年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>中级工工作年限20年以下；
+初级工（普工），工作年限30年
+（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>初级工（普工）</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QRadioButton" name="workerPosition">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -258,156 +464,14 @@
          </font>
         </property>
         <property name="text">
-         <string>其他专业技术岗位</string>
+         <string>工勤岗位</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QListWidget" name="OtherSpecialtyList">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="font">
-         <font>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="currentRow">
-         <number>1</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>其他专业技术十三级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十一级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术九级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术八级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术七级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术六级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术五级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术四级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术三级</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QListWidget" name="TeachingList">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="font">
-         <font>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="currentRow">
-         <number>2</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>助教二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>助教一级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>讲师三级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>讲师二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>讲师一级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>副教授三级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>副教授二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>副教授一级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>教授四级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>教授三级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>教授二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>教授一级</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="1">
        <widget class="QListWidget" name="ManagementList">
         <property name="enabled">
          <bool>false</bool>
@@ -424,21 +488,72 @@
          <bool>false</bool>
         </property>
         <property name="currentRow">
-         <number>1</number>
+         <number>15</number>
         </property>
         <item>
          <property name="text">
-          <string>办事员</string>
+          <string>正校级</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>科员，工作年限10年以下</string>
+          <string>副校级</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>科员，工作年限10年（含）以上</string>
+          <string>党委常委/校长助理</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级12年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级6年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任正处级6年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级12年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级6年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>任副处级6年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>正科级，工作年限25年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>正科级，工作年限10年（含）以上</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副科级，工作年限25年（含）以上；
+正科级，工作年限10年以下</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>副科级，工作年限10年（含）以上</string>
          </property>
         </item>
         <item>
@@ -458,70 +573,40 @@
         </item>
         <item>
          <property name="text">
-          <string>副科级，工作年限10年（含）以上</string>
+          <string>科员，工作年限10年（含）以上</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>副科级，工作年限25年（含）以上；
-正科级，工作年限10年以下</string>
+          <string>科员，工作年限10年以下</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>正科级，工作年限10年（含）以上</string>
+          <string>办事员</string>
          </property>
         </item>
-        <item>
-         <property name="text">
-          <string>正科级，工作年限25年（含）以上</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任副处级6年以下</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任副处级6年（含）以上</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任副处级12年（含）以上</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任正处级6年以下</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任正处级6年（含）以上</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>任正处级12年（含）以上</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>党委常委/校长助理</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>副校级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>正校级</string>
-         </property>
-        </item>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QRadioButton" name="ManagementPosition">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>党政管理岗位</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
      </layout>
@@ -532,8 +617,8 @@
      <rect>
       <x>100</x>
       <y>120</y>
-      <width>371</width>
-      <height>51</height>
+      <width>631</width>
+      <height>54</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -545,7 +630,9 @@
         </font>
        </property>
        <property name="text">
-        <string>根据工资文件内岗贴自动计算</string>
+        <string>读取工资文件内的岗贴数字自动计算党费
+（主要适用于【非教学岗位】。教学岗位的
+工资文件一般无岗贴栏目，请不要选择此项）</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -559,12 +646,49 @@
          <stylestrategy>PreferAntialias</stylestrategy>
         </font>
        </property>
+       <property name="toolTipDuration">
+        <number>-5</number>
+       </property>
        <property name="text">
-        <string>手动选择岗贴标准</string>
+        <string>手动选择岗贴标准后计算党费
+(主要适用于【教学岗位】。如果非教学岗位的工资
+文件内的岗贴栏目数字不准确，也可选择此项)</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>10</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'微软雅黑'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;特别提示：&lt;/span&gt;无论计算&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#aa0000;&quot;&gt;第几季度&lt;/span&gt;的党费，&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;导入的工资文件&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#aa0000;&quot;&gt;必须从【1月】开始&lt;/span&gt;，&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;否则会&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#aa0000;&quot;&gt;计算出错&lt;/span&gt;或者&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#aa0000;&quot;&gt;生成缴费表失败&lt;/span&gt;！&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
    </widget>
   </widget>
   <action name="actionImport">
@@ -590,12 +714,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
-     <y>150</y>
+     <x>719</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
-     <x>405</x>
-     <y>211</y>
+     <x>230</x>
+     <y>216</y>
     </hint>
    </hints>
   </connection>
@@ -622,12 +746,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>436</x>
-     <y>143</y>
+     <x>719</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
-     <x>86</x>
-     <y>216</y>
+     <x>302</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>
@@ -638,8 +762,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>409</x>
-     <y>146</y>
+     <x>719</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
      <x>557</x>
@@ -670,12 +794,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>181</x>
-     <y>219</y>
+     <x>397</x>
+     <y>224</y>
     </hint>
     <hint type="destinationlabel">
-     <x>179</x>
-     <y>274</y>
+     <x>395</x>
+     <y>309</y>
     </hint>
    </hints>
   </connection>
@@ -690,8 +814,8 @@
      <y>213</y>
     </hint>
     <hint type="destinationlabel">
-     <x>454</x>
-     <y>284</y>
+     <x>230</x>
+     <y>319</y>
     </hint>
    </hints>
   </connection>
@@ -706,8 +830,8 @@
      <y>212</y>
     </hint>
     <hint type="destinationlabel">
-     <x>224</x>
-     <y>257</y>
+     <x>440</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
@@ -718,12 +842,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>219</y>
+     <x>382</x>
+     <y>224</y>
     </hint>
     <hint type="destinationlabel">
-     <x>319</x>
-     <y>244</y>
+     <x>230</x>
+     <y>279</y>
     </hint>
    </hints>
   </connection>
@@ -734,8 +858,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>212</y>
+     <x>370</x>
+     <y>217</y>
     </hint>
     <hint type="destinationlabel">
      <x>524</x>
@@ -750,12 +874,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>345</x>
-     <y>217</y>
+     <x>230</x>
+     <y>222</y>
     </hint>
     <hint type="destinationlabel">
-     <x>347</x>
-     <y>254</y>
+     <x>230</x>
+     <y>289</y>
     </hint>
    </hints>
   </connection>
@@ -766,12 +890,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>389</x>
-     <y>214</y>
+     <x>230</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
-     <x>205</x>
-     <y>254</y>
+     <x>421</x>
+     <y>289</y>
     </hint>
    </hints>
   </connection>
@@ -782,8 +906,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>466</x>
-     <y>222</y>
+     <x>230</x>
+     <y>224</y>
     </hint>
     <hint type="destinationlabel">
      <x>518</x>
@@ -798,8 +922,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>437</x>
-     <y>144</y>
+     <x>719</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
      <x>440</x>
@@ -810,16 +934,144 @@
   <connection>
    <sender>ManualGT</sender>
    <signal>clicked(bool)</signal>
-   <receiver>ManagementPosition</receiver>
+   <receiver>TeachingPosition</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>378</x>
-     <y>143</y>
+     <x>719</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
-     <x>369</x>
+     <x>354</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManualGT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>workerPosition</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>661</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>749</x>
      <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>workerPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>workerList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>779</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>779</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>workerPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OtherSpecialtyList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>723</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>576</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>workerPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>TeachingList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>717</x>
+     <y>210</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>workerPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ManagementList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>723</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ManagementPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>workerList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>183</x>
+     <y>215</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>771</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TeachingPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>workerList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>770</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OtherSpecialtyPosition</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>workerList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>525</x>
+     <y>216</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>819</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
