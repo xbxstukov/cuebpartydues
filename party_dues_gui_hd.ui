@@ -615,9 +615,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>70</x>
       <y>120</y>
-      <width>631</width>
+      <width>671</width>
       <height>54</height>
      </rect>
     </property>
@@ -629,10 +629,22 @@
          <stylestrategy>PreferAntialias</stylestrategy>
         </font>
        </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>-1</number>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="whatsThis">
+        <string/>
+       </property>
        <property name="text">
         <string>读取工资文件内的岗贴数字自动计算党费
-（主要适用于【非教学岗位】。教学岗位的
-工资文件一般无岗贴栏目，请不要选择此项）</string>
+        说明：本选项主要适用于【非教学岗位】。教学
+岗位的工资文件一般没有岗贴项目，请不要选择此项</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -646,13 +658,16 @@
          <stylestrategy>PreferAntialias</stylestrategy>
         </font>
        </property>
+       <property name="toolTip">
+        <string/>
+       </property>
        <property name="toolTipDuration">
-        <number>-5</number>
+        <number>-1</number>
        </property>
        <property name="text">
         <string>手动选择岗贴标准后计算党费
-(主要适用于【教学岗位】。如果非教学岗位的工资
-文件内的岗贴栏目数字不准确，也可选择此项)</string>
+        说明：本选项主要适用于【教学岗位】。如果非教学
+岗位的工资文件内的岗贴栏目数字不准确，也可选择此项</string>
        </property>
       </widget>
      </item>

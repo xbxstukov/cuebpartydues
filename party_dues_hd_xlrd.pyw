@@ -120,82 +120,127 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         except IndexError:
             pass
         # 缴费项目索引
+        errorTips = "无法在您提供的工资表中找到【%s】项目，如果此项目缺失、或此项目名称在工资表内有变化，"\
+                    "请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【%s】(外面不能加方括号，只留文字)，之后再重新导入工资表。\n\n点击OK后，程序将自动退出!"
         try:
             gwgzDex = dueNameList.index('岗位工资')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【岗位工资】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【岗位工资】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('岗位工资','岗位工资'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             xjgzDex = dueNameList.index('薪级工资')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【薪级工资】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【薪级工资】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('薪级工资','薪级工资'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             zbDex = dueNameList.index('职补')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【职补】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【职补】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('职补','职补'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             shbfDex = dueNameList.index('书报费')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【书报费】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【书报费】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('书报费','书报费'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             xlfDex = dueNameList.index('洗理费')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【洗理费】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【洗理费】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('洗理费','洗理费'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             shfDex = dueNameList.index('生活费')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【生活费】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【生活费】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('生活费','生活费'), QtWidgets.QMessageBox.Ok)
             exit()
         try:
             xnbtDex = dueNameList.index('校内补贴')
-            isFindxnbt = True
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【校内补贴】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【校内补贴】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('校内补贴','校内补贴'), QtWidgets.QMessageBox.Ok)
             exit()
         if useGtDex is True:
             try:
-                gtDex = dueNameList.index('岗贴')
+                gtDex = dueNameList.index('岗位津贴')
                 isFindGt = True
             except ValueError:
-                isFindGt = False
-                # print('\n无法在您提供的工资表中找到【岗贴】，无法自动生成缴费表')
-                QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【岗贴】栏目，请重启程序后手动选择岗贴标准，点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
-                exit()
-                # bzgt, okPressed = QtWidgets.QInputDialog.getInt(self, "自定义岗贴", "请输入岗贴(整数):", 0, 5400, 14100, 100)
+                try:
+                    gtDex = dueNameList.index('岗贴')
+                    isFindGt = True
+                except ValueError:
+                    isFindGt = False
+                    # print('\n无法在您提供的工资表中找到【岗贴】，无法自动生成缴费表')
+                    QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【岗贴】或者【岗位津贴】项目，请重启程序后，在列表中手动选择岗贴标准。"\
+                                                            "\n\n点击OK后，程序将自动退出!", QtWidgets.QMessageBox.Ok)
+                    exit()
+                    # bzgt, okPressed = QtWidgets.QInputDialog.getInt(self, "自定义岗贴", "请输入岗贴(整数):", 0, 5400, 14100, 100)
         elif useGtDex is False:
             isFindGt = False
-        jsheDex = dueNameList.index('绩效减少额')
-        kgjjDex = dueNameList.index('扣公积金')
-        kzhynjDex = dueNameList.index('扣职业年金')
-        kyxDex = dueNameList.index('扣养险(新老合并）')
-        kshxDex = dueNameList.index('扣失险')
-        kylxDex = dueNameList.index('扣医疗险')
+        try:
+            jsheDex = dueNameList.index('绩效减少额')
+        except ValueError:
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('绩效减少额','绩效减少额'), QtWidgets.QMessageBox.Ok)
+            exit()
+        try:
+            kgjjDex = dueNameList.index('扣公积金')
+        except ValueError:
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣公积金','扣公积金'), QtWidgets.QMessageBox.Ok)
+            exit()
+        try:
+            kzhynjDex = dueNameList.index('扣职业年金')
+        except ValueError:
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣职业年金','扣职业年金'), QtWidgets.QMessageBox.Ok)
+            exit()
+        try:
+            kyxDex = dueNameList.index('扣养险(新老合并）')
+        except ValueError:
+            try:
+                kyxDex = dueNameList.index('扣养险')
+            except ValueError:
+                try:
+                    kyxDex = dueNameList.index('扣养险(新老合并)')
+                except ValueError:
+                    QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣养险','扣养险'), QtWidgets.QMessageBox.Ok)
+                    exit()
+        try:    
+            kshxDex = dueNameList.index('扣失险')
+        except ValueError:
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣失险','扣失险'), QtWidgets.QMessageBox.Ok)
+            exit()
+        try:
+            kylxDex = dueNameList.index('扣医疗险')
+        except ValueError:
+            QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣医疗险','扣医疗险'), QtWidgets.QMessageBox.Ok)
+            exit()
         try:
             srzj3Dex = dueNameList.index('薪金收入合计(3项)')
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【薪金收入合计(3项)】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【薪金收入合计(3项)】(不加方括号,3项外的括号为英文括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
-            exit()
+            try:
+                srzj3Dex = dueNameList.index('薪金收入合计')
+            except ValueError:
+                try:
+                    srzj3Dex = dueNameList.index('收入总计')
+                except ValueError:
+                    try:
+                        srzj3Dex = dueNameList.index('收入总计(三项)')
+                    except ValueError:
+                        QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('薪金收入合计','薪金收入合计'), QtWidgets.QMessageBox.Ok)
+                        exit()
+        ksh2Text =  "检测到某些月份【%s】的数字等于0，请咨询支部书记，在计算党费时，对于【%s】项目为0的月份，是否需要"\
+                    "把【扣税1】项目中的数字复制到【%s】中进行替代并参与计算。如果需要，请关闭程序，自行修改Excel原始工资表后，再重新启动程序进行计算。\n\n"\
+                    "如不需要，请点击OK，本程序将把【%s】项目的数值视为0，并继续进行党费计算。计算完成后，请务必仔细核对缴费表中的数字是否正确！"
         try:
             ksh2Dex = dueNameList.index('扣税2') 
             if JanList[ksh2Dex] or FebList[ksh2Dex] or MarList[ksh2Dex] or AprList[ksh2Dex] or MayList[ksh2Dex] or JunList[ksh2Dex] or JulList[ksh2Dex] or AugList[ksh2Dex] or\
-                SepList[ksh2Dex] or OctList[ksh2Dex] or NovList[ksh2Dex] or DecList[ksh2Dex] <= 0:
-                QtWidgets.QMessageBox.information(self, "提示", "检测到有的月份【扣税2】的数字小于或等于0，请仔细核对工资表数据是否准确！点击OK继续", QtWidgets.QMessageBox.Ok)
+                SepList[ksh2Dex] or OctList[ksh2Dex] or NovList[ksh2Dex] or DecList[ksh2Dex] == 0:
+                QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
         except ValueError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "无法在您提供的工资表中找到【扣税2】项目，如果此项目缺失、或此项目名称在工资表内有变化，\
-请您自行在工资表中增加该项目、或者将工资表中相应的项目名称改回为【扣税2】(不加方括号)，之后再重新导入工资表。\n\n点击OK后,程序将退出!", QtWidgets.QMessageBox.Ok)
-            exit()        
+            try:
+                ksh2Dex = dueNameList.index('扣税2(本期应缴税）')
+                if JanList[ksh2Dex] or FebList[ksh2Dex] or MarList[ksh2Dex] or AprList[ksh2Dex] or MayList[ksh2Dex] or JunList[ksh2Dex] or JulList[ksh2Dex] or AugList[ksh2Dex] or\
+                    SepList[ksh2Dex] or OctList[ksh2Dex] or NovList[ksh2Dex] or DecList[ksh2Dex] == 0:
+                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
+            except ValueError:
+                QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+                exit()
         # 缴费模板生成
         wb2 = openpyxl.Workbook()
         ws2 = wb2.active
@@ -317,10 +362,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I3'] = round(float(bzgt), 2)
                 ws2['J3'] = round(abs(JanList[jsheDex]), 2)
                 ws2['K3'] = round(abs(JanList[kgjjDex]), 2)
-                ws2['L3'] = round(JanList[kzhynjDex], 2)
-                ws2['M3'] = round(JanList[kyxDex], 2)
-                ws2['N3'] = round(JanList[kshxDex], 2)
-                ws2['O3'] = round(JanList[kylxDex], 2)
+                ws2['L3'] = round(abs(JanList[kzhynjDex]), 2)
+                ws2['M3'] = round(abs(JanList[kyxDex]), 2)
+                ws2['N3'] = round(abs(JanList[kshxDex]), 2)
+                ws2['O3'] = round(abs(JanList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+JanList[shfDex]+\
                         JanList[xnbtDex]+JanList[gtDex])/JanList[srzj3Dex]*JanList[ksh2Dex]
@@ -330,12 +375,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P3'] = round(tax, 2)
                 if isFindGt is True:
                     total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
-                        JanList[shfDex]+JanList[xnbtDex]+JanList[gtDex]-abs(JanList[jsheDex])-abs(JanList[kgjjDex])-JanList[kzhynjDex]-\
-                            JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
+                        JanList[shfDex]+JanList[xnbtDex]+JanList[gtDex]-abs(JanList[jsheDex])-abs(JanList[kgjjDex])-abs(JanList[kzhynjDex])-\
+                            abs(JanList[kyxDex])-abs(JanList[kshxDex])-abs(JanList[kylxDex])-tax
                 elif isFindGt is False:
                     total = JanList[gwgzDex]+JanList[xjgzDex]+JanList[zbDex]+JanList[shbfDex]+JanList[xlfDex]+\
-                        JanList[shfDex]+JanList[xnbtDex]+float(bzgt)-abs(JanList[jsheDex])-abs(JanList[kgjjDex])-JanList[kzhynjDex]-\
-                            JanList[kyxDex]-JanList[kshxDex]-JanList[kylxDex]-tax
+                        JanList[shfDex]+JanList[xnbtDex]+float(bzgt)-abs(JanList[jsheDex])-abs(JanList[kgjjDex])-abs(JanList[kzhynjDex])-\
+                            abs(JanList[kyxDex])-abs(JanList[kshxDex])-abs(JanList[kylxDex])-tax
                 ws2['Q3'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -362,10 +407,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I4'] = round(float(bzgt), 2)
                 ws2['J4'] = round(abs(FebList[jsheDex]), 2)
                 ws2['K4'] = round(abs(FebList[kgjjDex]), 2)
-                ws2['L4'] = round(FebList[kzhynjDex], 2)
-                ws2['M4'] = round(FebList[kyxDex], 2)
-                ws2['N4'] = round(FebList[kshxDex], 2)
-                ws2['O4'] = round(FebList[kylxDex], 2)
+                ws2['L4'] = round(abs(FebList[kzhynjDex]), 2)
+                ws2['M4'] = round(abs(FebList[kyxDex]), 2)
+                ws2['N4'] = round(abs(FebList[kshxDex]), 2)
+                ws2['O4'] = round(abs(FebList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+FebList[shfDex]+\
                         FebList[xnbtDex]+FebList[gtDex])/FebList[srzj3Dex]*FebList[ksh2Dex]
@@ -375,12 +420,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P4'] = round(tax, 2)
                 if isFindGt is True:
                     total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
-                        FebList[shfDex]+FebList[xnbtDex]+FebList[gtDex]-abs(FebList[jsheDex])-abs(FebList[kgjjDex])-FebList[kzhynjDex]-\
-                            FebList[kyxDex]-FebList[kshxDex]-FebList[kylxDex]-tax
+                        FebList[shfDex]+FebList[xnbtDex]+FebList[gtDex]-abs(FebList[jsheDex])-abs(FebList[kgjjDex])-abs(FebList[kzhynjDex])-\
+                            abs(FebList[kyxDex])-abs(FebList[kshxDex])-abs(FebList[kylxDex])-tax
                 elif isFindGt is False:
                     total = FebList[gwgzDex]+FebList[xjgzDex]+FebList[zbDex]+FebList[shbfDex]+FebList[xlfDex]+\
-                    FebList[shfDex]+FebList[xnbtDex]+float(bzgt)-abs(FebList[jsheDex])-abs(FebList[kgjjDex])-FebList[kzhynjDex]-\
-                        FebList[kyxDex]-FebList[kshxDex]-FebList[kylxDex]-tax
+                    FebList[shfDex]+FebList[xnbtDex]+float(bzgt)-abs(FebList[jsheDex])-abs(FebList[kgjjDex])-abs(FebList[kzhynjDex])-\
+                        abs(FebList[kyxDex])-abs(FebList[kshxDex])-abs(FebList[kylxDex])-tax
                 ws2['Q4'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -407,10 +452,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I5'] = round(float(bzgt), 2)
                 ws2['J5'] = round(abs(MarList[jsheDex]), 2)
                 ws2['K5'] = round(abs(MarList[kgjjDex]), 2)
-                ws2['L5'] = round(MarList[kzhynjDex], 2)
-                ws2['M5'] = round(MarList[kyxDex], 2)
-                ws2['N5'] = round(MarList[kshxDex], 2)
-                ws2['O5'] = round(MarList[kylxDex], 2)
+                ws2['L5'] = round(abs(MarList[kzhynjDex]), 2)
+                ws2['M5'] = round(abs(MarList[kyxDex]), 2)
+                ws2['N5'] = round(abs(MarList[kshxDex]), 2)
+                ws2['O5'] = round(abs(MarList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+MarList[shfDex]+\
                         MarList[xnbtDex]+MarList[gtDex])/MarList[srzj3Dex]*MarList[ksh2Dex]
@@ -420,12 +465,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P5'] = round(tax, 2)
                 if isFindGt is True:
                     total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
-                        MarList[shfDex]+MarList[xnbtDex]+MarList[gtDex]-abs(MarList[jsheDex])-abs(MarList[kgjjDex])-MarList[kzhynjDex]-\
-                            MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
+                        MarList[shfDex]+MarList[xnbtDex]+MarList[gtDex]-abs(MarList[jsheDex])-abs(MarList[kgjjDex])-abs(MarList[kzhynjDex])-\
+                            abs(MarList[kyxDex])-abs(MarList[kshxDex])-abs(MarList[kylxDex])-tax
                 elif isFindGt is False:
                     total = MarList[gwgzDex]+MarList[xjgzDex]+MarList[zbDex]+MarList[shbfDex]+MarList[xlfDex]+\
-                        MarList[shfDex]+MarList[xnbtDex]+float(bzgt)-abs(MarList[jsheDex])-abs(MarList[kgjjDex])-MarList[kzhynjDex]-\
-                            MarList[kyxDex]-MarList[kshxDex]-MarList[kylxDex]-tax
+                        MarList[shfDex]+MarList[xnbtDex]+float(bzgt)-abs(MarList[jsheDex])-abs(MarList[kgjjDex])-abs(MarList[kzhynjDex])-\
+                            abs(MarList[kyxDex])-abs(MarList[kshxDex])-abs(MarList[kylxDex])-tax
                 ws2['Q5'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -454,10 +499,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I3'] = round(float(bzgt), 2)
                 ws2['J3'] = round(abs(AprList[jsheDex]), 2)
                 ws2['K3'] = round(abs(AprList[kgjjDex]), 2)
-                ws2['L3'] = round(AprList[kzhynjDex], 2)
-                ws2['M3'] = round(AprList[kyxDex], 2)
-                ws2['N3'] = round(AprList[kshxDex], 2)
-                ws2['O3'] = round(AprList[kylxDex], 2)
+                ws2['L3'] = round(abs(AprList[kzhynjDex]), 2)
+                ws2['M3'] = round(abs(AprList[kyxDex]), 2)
+                ws2['N3'] = round(abs(AprList[kshxDex]), 2)
+                ws2['O3'] = round(abs(AprList[kylxDex]), 2)
                 # ws2['S3'] = AprList[srzj3Dex]
                 # ws2['T3'] = AprList[ksh2Dex]
                 if isFindGt is True:
@@ -469,12 +514,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P3'] = round(tax, 2)
                 if isFindGt is True:
                     total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
-                        AprList[shfDex]+AprList[xnbtDex]+AprList[gtDex]-abs(AprList[jsheDex])-abs(AprList[kgjjDex])-AprList[kzhynjDex]-\
-                            AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
+                        AprList[shfDex]+AprList[xnbtDex]+AprList[gtDex]-abs(AprList[jsheDex])-abs(AprList[kgjjDex])-abs(AprList[kzhynjDex])-\
+                            abs(AprList[kyxDex])-abs(AprList[kshxDex])-abs(AprList[kylxDex])-tax
                 elif isFindGt is False:
                     total = AprList[gwgzDex]+AprList[xjgzDex]+AprList[zbDex]+AprList[shbfDex]+AprList[xlfDex]+\
-                        AprList[shfDex]+AprList[xnbtDex]+float(bzgt)-abs(AprList[jsheDex])-abs(AprList[kgjjDex])-AprList[kzhynjDex]-\
-                            AprList[kyxDex]-AprList[kshxDex]-AprList[kylxDex]-tax
+                        AprList[shfDex]+AprList[xnbtDex]+float(bzgt)-abs(AprList[jsheDex])-abs(AprList[kgjjDex])-abs(AprList[kzhynjDex])-\
+                            abs(AprList[kyxDex])-abs(AprList[kshxDex])-abs(AprList[kylxDex])-tax
                 ws2['Q3'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -499,10 +544,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I4'] = round(float(bzgt), 2)
                 ws2['J4'] = round(abs(MayList[jsheDex]), 2)
                 ws2['K4'] = round(abs(MayList[kgjjDex]), 2)
-                ws2['L4'] = round(MayList[kzhynjDex], 2)
-                ws2['M4'] = round(MayList[kyxDex], 2)
-                ws2['N4'] = round(MayList[kshxDex], 2)
-                ws2['O4'] = round(MayList[kylxDex], 2)
+                ws2['L4'] = round(abs(MayList[kzhynjDex]), 2)
+                ws2['M4'] = round(abs(MayList[kyxDex]), 2)
+                ws2['N4'] = round(abs(MayList[kshxDex]), 2)
+                ws2['O4'] = round(abs(MayList[kylxDex]), 2)
                 # ws2['S4'] = MayList[srzj3Dex]
                 # ws2['T4'] = MayList[ksh2Dex]
                 if isFindGt is True:
@@ -514,12 +559,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P4'] = round(tax,2)
                 if isFindGt is True:
                     total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
-                        MayList[shfDex]+MayList[xnbtDex]+MayList[gtDex]-abs(MayList[jsheDex])-abs(MayList[kgjjDex])-MayList[kzhynjDex]-\
-                            MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
+                        MayList[shfDex]+MayList[xnbtDex]+MayList[gtDex]-abs(MayList[jsheDex])-abs(MayList[kgjjDex])-abs(MayList[kzhynjDex])-\
+                            abs(MayList[kyxDex])-abs(MayList[kshxDex])-abs(MayList[kylxDex])-tax
                 elif isFindGt is False:
                     total = MayList[gwgzDex]+MayList[xjgzDex]+MayList[zbDex]+MayList[shbfDex]+MayList[xlfDex]+\
-                        MayList[shfDex]+MayList[xnbtDex]+float(bzgt)-abs(MayList[jsheDex])-abs(MayList[kgjjDex])-MayList[kzhynjDex]-\
-                            MayList[kyxDex]-MayList[kshxDex]-MayList[kylxDex]-tax
+                        MayList[shfDex]+MayList[xnbtDex]+float(bzgt)-abs(MayList[jsheDex])-abs(MayList[kgjjDex])-abs(MayList[kzhynjDex])-\
+                            abs(MayList[kyxDex])-abs(MayList[kshxDex])-abs(MayList[kylxDex])-tax
                 ws2['Q4'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -544,10 +589,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I5'] = round(float(bzgt), 2)
                 ws2['J5'] = round(abs(JunList[jsheDex]), 2)
                 ws2['K5'] = round(abs(JunList[kgjjDex]), 2)
-                ws2['L5'] = round(JunList[kzhynjDex], 2)
-                ws2['M5'] = round(JunList[kyxDex], 2)
-                ws2['N5'] = round(JunList[kshxDex], 2)
-                ws2['O5'] = round(JunList[kylxDex], 2)
+                ws2['L5'] = round(abs(JunList[kzhynjDex]), 2)
+                ws2['M5'] = round(abs(JunList[kyxDex]), 2)
+                ws2['N5'] = round(abs(JunList[kshxDex]), 2)
+                ws2['O5'] = round(abs(JunList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+JunList[shfDex]+\
                         JunList[xnbtDex]+JunList[gtDex])/JunList[srzj3Dex]*JunList[ksh2Dex]
@@ -557,12 +602,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P5'] = round(tax, 2)
                 if isFindGt is True:
                     total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
-                        JunList[shfDex]+JunList[xnbtDex]+JunList[gtDex]-abs(JunList[jsheDex])-abs(JunList[kgjjDex])-JunList[kzhynjDex]-\
-                            JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
+                        JunList[shfDex]+JunList[xnbtDex]+JunList[gtDex]-abs(JunList[jsheDex])-abs(JunList[kgjjDex])-abs(JunList[kzhynjDex])-\
+                            abs(JunList[kyxDex])-abs(JunList[kshxDex])-abs(JunList[kylxDex])-tax
                 elif isFindGt is False:
                     total = JunList[gwgzDex]+JunList[xjgzDex]+JunList[zbDex]+JunList[shbfDex]+JunList[xlfDex]+\
-                        JunList[shfDex]+JunList[xnbtDex]+float(bzgt)-abs(JunList[jsheDex])-abs(JunList[kgjjDex])-JunList[kzhynjDex]-\
-                            JunList[kyxDex]-JunList[kshxDex]-JunList[kylxDex]-tax
+                        JunList[shfDex]+JunList[xnbtDex]+float(bzgt)-abs(JunList[jsheDex])-abs(JunList[kgjjDex])-abs(JunList[kzhynjDex])-\
+                            abs(JunList[kyxDex])-abs(JunList[kshxDex])-abs(JunList[kylxDex])-tax
                 ws2['Q5'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -589,10 +634,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I3'] = round(float(bzgt), 2)
                 ws2['J3'] = round(abs(JulList[jsheDex]), 2)
                 ws2['K3'] = round(abs(JulList[kgjjDex]), 2)
-                ws2['L3'] = round(JulList[kzhynjDex], 2)
-                ws2['M3'] = round(JulList[kyxDex], 2)
-                ws2['N3'] = round(JulList[kshxDex], 2)
-                ws2['O3'] = round(JulList[kylxDex], 2)
+                ws2['L3'] = round(abs(JulList[kzhynjDex]), 2)
+                ws2['M3'] = round(abs(JulList[kyxDex]), 2)
+                ws2['N3'] = round(abs(JulList[kshxDex]), 2)
+                ws2['O3'] = round(abs(JulList[kylxDex]), 2)
                 if isFindGt is True:    
                     tax = (JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+JulList[shfDex]+\
                         JulList[xnbtDex]+JulList[gtDex])/JulList[srzj3Dex]*JulList[ksh2Dex]
@@ -602,12 +647,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P3'] = round(tax, 2)
                 if isFindGt is True:
                     total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
-                        JulList[shfDex]+JulList[xnbtDex]+JulList[gtDex]-abs(JulList[jsheDex])-abs(JulList[kgjjDex])-JulList[kzhynjDex]-\
-                            JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
+                        JulList[shfDex]+JulList[xnbtDex]+JulList[gtDex]-abs(JulList[jsheDex])-abs(JulList[kgjjDex])-abs(JulList[kzhynjDex])-\
+                            abs(JulList[kyxDex])-abs(JulList[kshxDex])-abs(JulList[kylxDex])-tax
                 elif isFindGt is False:
                     total = JulList[gwgzDex]+JulList[xjgzDex]+JulList[zbDex]+JulList[shbfDex]+JulList[xlfDex]+\
-                        JulList[shfDex]+JulList[xnbtDex]+float(bzgt)-abs(JulList[jsheDex])-abs(JulList[kgjjDex])-JulList[kzhynjDex]-\
-                            JulList[kyxDex]-JulList[kshxDex]-JulList[kylxDex]-tax
+                        JulList[shfDex]+JulList[xnbtDex]+float(bzgt)-abs(JulList[jsheDex])-abs(JulList[kgjjDex])-abs(JulList[kzhynjDex])-\
+                            abs(JulList[kyxDex])-abs(JulList[kshxDex])-abs(JulList[kylxDex])-tax
                 ws2['Q3'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -632,10 +677,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I4'] = round(float(bzgt), 2)
                 ws2['J4'] = round(abs(AugList[jsheDex]), 2)
                 ws2['K4'] = round(abs(AugList[kgjjDex]), 2)
-                ws2['L4'] = round(AugList[kzhynjDex], 2)
-                ws2['M4'] = round(AugList[kyxDex], 2)
-                ws2['N4'] = round(AugList[kshxDex], 2)
-                ws2['O4'] = round(AugList[kylxDex], 2)
+                ws2['L4'] = round(abs(AugList[kzhynjDex]), 2)
+                ws2['M4'] = round(abs(AugList[kyxDex]), 2)
+                ws2['N4'] = round(abs(AugList[kshxDex]), 2)
+                ws2['O4'] = round(abs(AugList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+AugList[shfDex]+\
                         AugList[xnbtDex]+AugList[gtDex])/AugList[srzj3Dex]*AugList[ksh2Dex]
@@ -645,12 +690,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P4'] = tax
                 if isFindGt is True:
                     total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
-                        AugList[shfDex]+AugList[xnbtDex]+AugList[gtDex]-abs(AugList[jsheDex])-abs(AugList[kgjjDex])-AugList[kzhynjDex]-\
-                            AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
+                        AugList[shfDex]+AugList[xnbtDex]+AugList[gtDex]-abs(AugList[jsheDex])-abs(AugList[kgjjDex])-abs(AugList[kzhynjDex])-\
+                            abs(AugList[kyxDex])-abs(AugList[kshxDex])-abs(AugList[kylxDex])-tax
                 elif isFindGt is False:
                     total = AugList[gwgzDex]+AugList[xjgzDex]+AugList[zbDex]+AugList[shbfDex]+AugList[xlfDex]+\
-                        AugList[shfDex]+AugList[xnbtDex]+float(bzgt)-abs(AugList[jsheDex])-abs(AugList[kgjjDex])-AugList[kzhynjDex]-\
-                            AugList[kyxDex]-AugList[kshxDex]-AugList[kylxDex]-tax
+                        AugList[shfDex]+AugList[xnbtDex]+float(bzgt)-abs(AugList[jsheDex])-abs(AugList[kgjjDex])-abs(AugList[kzhynjDex])-\
+                            abs(AugList[kyxDex])-abs(AugList[kshxDex])-abs(AugList[kylxDex])-tax
                 ws2['Q4'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -675,10 +720,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I5'] = round(float(bzgt), 2)
                 ws2['J5'] = round(abs(SepList[jsheDex]), 2)
                 ws2['K5'] = round(abs(SepList[kgjjDex]), 2)
-                ws2['L5'] = round(SepList[kzhynjDex], 2)
-                ws2['M5'] = round(SepList[kyxDex], 2)
-                ws2['N5'] = round(SepList[kshxDex], 2)
-                ws2['O5'] = round(SepList[kylxDex], 2)
+                ws2['L5'] = round(abs(SepList[kzhynjDex]), 2)
+                ws2['M5'] = round(abs(SepList[kyxDex]), 2)
+                ws2['N5'] = round(abs(SepList[kshxDex]), 2)
+                ws2['O5'] = round(abs(SepList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+SepList[shfDex]+\
                         SepList[xnbtDex]+SepList[gtDex])/SepList[srzj3Dex]*SepList[ksh2Dex]
@@ -688,12 +733,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P5'] = round(tax, 2)
                 if isFindGt is True:
                     total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
-                        SepList[shfDex]+SepList[xnbtDex]+SepList[gtDex]-abs(SepList[jsheDex])-abs(SepList[kgjjDex])-SepList[kzhynjDex]-\
-                            SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
+                        SepList[shfDex]+SepList[xnbtDex]+SepList[gtDex]-abs(SepList[jsheDex])-abs(SepList[kgjjDex])-abs(SepList[kzhynjDex])-\
+                            abs(SepList[kyxDex])-abs(SepList[kshxDex])-abs(SepList[kylxDex])-tax
                 elif isFindGt is False:
                     total = SepList[gwgzDex]+SepList[xjgzDex]+SepList[zbDex]+SepList[shbfDex]+SepList[xlfDex]+\
-                        SepList[shfDex]+SepList[xnbtDex]+float(bzgt)-abs(SepList[jsheDex])-abs(SepList[kgjjDex])-SepList[kzhynjDex]-\
-                            SepList[kyxDex]-SepList[kshxDex]-SepList[kylxDex]-tax
+                        SepList[shfDex]+SepList[xnbtDex]+float(bzgt)-abs(SepList[jsheDex])-abs(SepList[kgjjDex])-abs(SepList[kzhynjDex])-\
+                            abs(SepList[kyxDex])-abs(SepList[kshxDex])-abs(SepList[kylxDex])-tax
                 ws2['Q5'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -720,10 +765,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I3'] = round(float(bzgt), 2)
                 ws2['J3'] = round(abs(OctList[jsheDex]), 2)
                 ws2['K3'] = round(abs(OctList[kgjjDex]), 2)
-                ws2['L3'] = round(OctList[kzhynjDex], 2)
-                ws2['M3'] = round(OctList[kyxDex], 2)
-                ws2['N3'] = round(OctList[kshxDex], 2)
-                ws2['O3'] = round(OctList[kylxDex], 2)
+                ws2['L3'] = round(abs(OctList[kzhynjDex]), 2)
+                ws2['M3'] = round(abs(OctList[kyxDex]), 2)
+                ws2['N3'] = round(abs(OctList[kshxDex]), 2)
+                ws2['O3'] = round(abs(OctList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+OctList[shfDex]+\
                         OctList[xnbtDex]+OctList[gtDex])/OctList[srzj3Dex]*OctList[ksh2Dex]
@@ -733,12 +778,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P3'] = round(tax, 2)
                 if isFindGt is True:
                     total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
-                        OctList[shfDex]+OctList[xnbtDex]+OctList[gtDex]-abs(OctList[jsheDex])-abs(OctList[kgjjDex])-OctList[kzhynjDex]-\
-                            OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
+                        OctList[shfDex]+OctList[xnbtDex]+OctList[gtDex]-abs(OctList[jsheDex])-abs(OctList[kgjjDex])-abs(OctList[kzhynjDex])-\
+                            abs(OctList[kyxDex])-abs(OctList[kshxDex])-abs(OctList[kylxDex])-tax
                 elif isFindGt is False:
                     total = OctList[gwgzDex]+OctList[xjgzDex]+OctList[zbDex]+OctList[shbfDex]+OctList[xlfDex]+\
-                        OctList[shfDex]+OctList[xnbtDex]+float(bzgt)-abs(OctList[jsheDex])-abs(OctList[kgjjDex])-OctList[kzhynjDex]-\
-                            OctList[kyxDex]-OctList[kshxDex]-OctList[kylxDex]-tax
+                        OctList[shfDex]+OctList[xnbtDex]+float(bzgt)-abs(OctList[jsheDex])-abs(OctList[kgjjDex])-abs(OctList[kzhynjDex])-\
+                            abs(OctList[kyxDex])-abs(OctList[kshxDex])-abs(OctList[kylxDex])-tax
                 ws2['Q3'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -763,10 +808,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I4'] = round(float(bzgt), 2)
                 ws2['J4'] = round(abs(NovList[jsheDex]), 2)
                 ws2['K4'] = round(abs(NovList[kgjjDex]), 2)
-                ws2['L4'] = round(NovList[kzhynjDex], 2)
-                ws2['M4'] = round(NovList[kyxDex], 2)
-                ws2['N4'] = round(NovList[kshxDex], 2)
-                ws2['O4'] = round(NovList[kylxDex], 2)
+                ws2['L4'] = round(abs(NovList[kzhynjDex]), 2)
+                ws2['M4'] = round(abs(NovList[kyxDex]), 2)
+                ws2['N4'] = round(abs(NovList[kshxDex]), 2)
+                ws2['O4'] = round(abs(NovList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+NovList[shfDex]+\
                         NovList[xnbtDex]+NovList[gtDex])/NovList[srzj3Dex]*NovList[ksh2Dex]
@@ -776,12 +821,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P4'] = round(tax, 2)
                 if isFindGt is True:
                     total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
-                        NovList[shfDex]+NovList[xnbtDex]+NovList[gtDex]-abs(NovList[jsheDex])-abs(NovList[kgjjDex])-NovList[kzhynjDex]-\
-                            NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
+                        NovList[shfDex]+NovList[xnbtDex]+NovList[gtDex]-abs(NovList[jsheDex])-abs(NovList[kgjjDex])-abs(NovList[kzhynjDex])-\
+                            abs(NovList[kyxDex])-abs(NovList[kshxDex])-abs(NovList[kylxDex])-tax
                 elif isFindGt is False:
                     total = NovList[gwgzDex]+NovList[xjgzDex]+NovList[zbDex]+NovList[shbfDex]+NovList[xlfDex]+\
-                        NovList[shfDex]+NovList[xnbtDex]+float(bzgt)-abs(NovList[jsheDex])-abs(NovList[kgjjDex])-NovList[kzhynjDex]-\
-                            NovList[kyxDex]-NovList[kshxDex]-NovList[kylxDex]-tax
+                        NovList[shfDex]+NovList[xnbtDex]+float(bzgt)-abs(NovList[jsheDex])-abs(NovList[kgjjDex])-abs(NovList[kzhynjDex])-\
+                            abs(NovList[kyxDex])-abs(NovList[kshxDex])-abs(NovList[kylxDex])-tax
                 ws2['Q4'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -806,10 +851,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     ws2['I5'] = round(float(bzgt), 2)
                 ws2['J5'] = round(abs(DecList[jsheDex]), 2)
                 ws2['K5'] = round(abs(DecList[kgjjDex]), 2)
-                ws2['L5'] = round(DecList[kzhynjDex], 2)
-                ws2['M5'] = round(DecList[kyxDex], 2)
-                ws2['N5'] = round(DecList[kshxDex], 2)
-                ws2['O5'] = round(DecList[kylxDex], 2)
+                ws2['L5'] = round(abs(DecList[kzhynjDex]), 2)
+                ws2['M5'] = round(abs(DecList[kyxDex]), 2)
+                ws2['N5'] = round(abs(DecList[kshxDex]), 2)
+                ws2['O5'] = round(abs(DecList[kylxDex]), 2)
                 if isFindGt is True:
                     tax = (DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+DecList[shfDex]+\
                         DecList[xnbtDex]+DecList[gtDex])/DecList[srzj3Dex]*DecList[ksh2Dex]
@@ -819,12 +864,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 ws2['P5'] = round(tax, 2)
                 if isFindGt is True:
                     total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
-                        DecList[shfDex]+DecList[xnbtDex]+DecList[gtDex]-abs(DecList[jsheDex])-abs(DecList[kgjjDex])-DecList[kzhynjDex]-\
-                            DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
+                        DecList[shfDex]+DecList[xnbtDex]+DecList[gtDex]-abs(DecList[jsheDex])-abs(DecList[kgjjDex])-abs(DecList[kzhynjDex])-\
+                            abs(DecList[kyxDex])-abs(DecList[kshxDex])-abs(DecList[kylxDex])-tax
                 elif isFindGt is False:
                     total = DecList[gwgzDex]+DecList[xjgzDex]+DecList[zbDex]+DecList[shbfDex]+DecList[xlfDex]+\
-                        DecList[shfDex]+DecList[xnbtDex]+float(bzgt)-abs(DecList[jsheDex])-abs(DecList[kgjjDex])-DecList[kzhynjDex]-\
-                            DecList[kyxDex]-DecList[kshxDex]-DecList[kylxDex]-tax
+                        DecList[shfDex]+DecList[xnbtDex]+float(bzgt)-abs(DecList[jsheDex])-abs(DecList[kgjjDex])-abs(DecList[kzhynjDex])-\
+                            abs(DecList[kyxDex])-abs(DecList[kshxDex])-abs(DecList[kylxDex])-tax
                 ws2['Q5'] = round(total, 2)
                 if total <= 3000:
                     partyFee = total*0.005
@@ -836,9 +881,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     partyFee = total*0.02
                 ws2['R5'] = round(partyFee, 2)
         except UnboundLocalError:
-            QtWidgets.QMessageBox.information(self, "错误提示", "您必须从1月份开始导出直到当前月份的工资数据,这也是财务"\
-            "系统的默认设置，您无须在导出工资数据时手动更改月份。本程序会自动识别当前时间,智能选取当前季度的月份计算党费，请您"\
-            "不要自己乱改设置。本次生成党费缴费表失败,请您按要求重新导出工资数据后再试!\n点击YES后,程序将自动退出", QtWidgets.QMessageBox.Yes)
+            QtWidgets.QMessageBox.information(self, "错误提示", "无论您需要计算第几季度的党费，本软件都需要您从财务系统导出工资数据表时，起始月份必须从【1月】开始，这也是财务"\
+                                                    "系统的默认设置，所以您在从财务系统导出工资数据时，一定【不要】手动更改起始月份，点击查询工资后，再直接点击执行按钮导出工资表就可以啦，"\
+                                                    "不需要做其他任何多余的操作。"\
+                                                    "\n本程序还会自动读取电脑右下角的系统时间，根据系统时间，可以智能识别并读取工资表中当前季度所需的工资数据，并用于计算党费。"\
+                                                    "\n很遗憾，本次生成党费缴费表失败！请您按要求重新到财务系统导出工资数据表后再试!"\
+                                                    "\n\n点击OK后，程序将自动退出", QtWidgets.QMessageBox.Ok)
             exit()
         totalPartyFee = round(ws2['R3'].value + ws2['R4'].value + ws2['R5'].value, 2)
         ws2['B6'] = totalPartyFee
@@ -852,7 +900,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # print('正在生成应交党费数据...')
         # time.sleep(2)
         # input('工资数据写入成功！保存文件名为【'+partyFeeName+'】，按回车键退出程序！')
-        QtWidgets.QMessageBox.information(self, "温馨提示", "缴费表格已生成！", QtWidgets.QMessageBox.Yes)
+        QtWidgets.QMessageBox.information(self, "成功提示", "缴费表格已生成！\n生成的缴费表格文件所在路径和原始工资文件一致。\n文件名为：" + partyFeeName, QtWidgets.QMessageBox.Ok)
 if __name__ == '__main__':
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"         #高分辨率支持
     app = QtWidgets.QApplication(sys.argv)

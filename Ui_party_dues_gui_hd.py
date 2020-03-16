@@ -253,7 +253,7 @@ class Ui_MainWindow(object):
         self.ManagementPosition.setObjectName("ManagementPosition")
         self.gridLayout.addWidget(self.ManagementPosition, 0, 2, 1, 1)
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(100, 120, 631, 54))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(70, 120, 671, 54))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -262,6 +262,10 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.AutoGT.setFont(font)
+        self.AutoGT.setToolTip("")
+        self.AutoGT.setToolTipDuration(-1)
+        self.AutoGT.setStatusTip("")
+        self.AutoGT.setWhatsThis("")
         self.AutoGT.setChecked(True)
         self.AutoGT.setObjectName("AutoGT")
         self.horizontalLayout.addWidget(self.AutoGT)
@@ -269,7 +273,8 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.ManualGT.setFont(font)
-        self.ManualGT.setToolTipDuration(-5)
+        self.ManualGT.setToolTip("")
+        self.ManualGT.setToolTipDuration(-1)
         self.ManualGT.setObjectName("ManualGT")
         self.horizontalLayout.addWidget(self.ManualGT)
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -443,11 +448,11 @@ class Ui_MainWindow(object):
         self.ManagementList.setSortingEnabled(__sortingEnabled)
         self.ManagementPosition.setText(_translate("MainWindow", "党政管理岗位"))
         self.AutoGT.setText(_translate("MainWindow", "读取工资文件内的岗贴数字自动计算党费\n"
-"（主要适用于【非教学岗位】。教学岗位的\n"
-"工资文件一般无岗贴栏目，请不要选择此项）"))
+"        说明：本选项主要适用于【非教学岗位】。教学\n"
+"岗位的工资文件一般没有岗贴项目，请不要选择此项"))
         self.ManualGT.setText(_translate("MainWindow", "手动选择岗贴标准后计算党费\n"
-"(主要适用于【教学岗位】。如果非教学岗位的工资\n"
-"文件内的岗贴栏目数字不准确，也可选择此项)"))
+"        说明：本选项主要适用于【教学岗位】。如果非教学\n"
+"岗位的工资文件内的岗贴栏目数字不准确，也可选择此项"))
         self.label.setText(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
