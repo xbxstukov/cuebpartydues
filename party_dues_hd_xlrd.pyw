@@ -44,6 +44,26 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             for i in range(len(x)):
                 x[i] = text2float(x[i])
             return x
+        
+        if self.AutoGT.isChecked():
+            useGtDex = True
+        else:
+            useGtDex = False
+        
+        if self.ManualGT.isChecked():
+            useGtDex = False
+            if self.ManagementPosition.isChecked():
+                managementGTList = [5300,5400,5500,5800,5900,6100,6200,6300,6800,7000,7200,7600,7900,8300,8400,10200,11400]
+                bzgt = managementGTList[self.ManagementList.currentRow()]
+                print(bzgt)
+            elif self.TeachingPosition.isChecked():
+                teachingGTList = [5400,5500,6100,6200,6300,6800,7200,7600,8400,9100,11600,14100]
+                bzgt = teachingGTList[self.TeachingList.currentRow()]
+                print(bzgt)
+            elif self.OtherSpecialtyPosition.isChecked():
+                specilatyGTList = [5300,5400,5500,5800,5950,6100,6400,6600,6800,7700,8500]
+                bzgt = specilatyGTList[self.OtherSpecialtyList.currentRow()]
+                print(bzgt)
 
         unitName, okPressed = QtWidgets.QInputDialog.getText(self, "单位名称", "请输入您的单位名称", QtWidgets.QLineEdit.Normal, "工商管理学院")
         # 获取当前年份，判定季度 
@@ -102,14 +122,17 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         xlfDex = dueNameList.index('洗理费')
         shfDex = dueNameList.index('生活费')
         xnbtDex = dueNameList.index('校内补贴')
-        try:
-            gtDex = dueNameList.index('岗贴')
-            isFindGt = True
-        except ValueError:
+        if useGtDex is True:
+            try:
+                gtDex = dueNameList.index('岗贴')
+                isFindGt = True
+            except ValueError:
+                isFindGt = False
+                # print('\n无法在您提供的工资表中找到“岗贴”，无法自动生成缴费表')
+                QtWidgets.QMessageBox.information(self, "提示", "无法在您提供的工资表中找到“岗贴”，请手动选择岗贴标准", QtWidgets.QMessageBox.Yes)
+                # bzgt, okPressed = QtWidgets.QInputDialog.getInt(self, "自定义岗贴", "请输入岗贴(整数):", 0, 5400, 14100, 100)
+        elif useGtDex is False:
             isFindGt = False
-            # print('\n无法在您提供的工资表中找到“岗贴”，无法自动生成缴费表')
-            QtWidgets.QMessageBox.information(self, "提示", "无法在您提供的工资表中找到“岗贴”，请手动输入岗贴", QtWidgets.QMessageBox.Yes)
-            bzgt, okPressed = QtWidgets.QInputDialog.getInt(self, "自定义岗贴", "请输入岗贴(整数):", 0, 5400, 14100, 100)
         jsheDex = dueNameList.index('绩效减少额')
         kgjjDex = dueNameList.index('扣公积金')
         kzhynjDex = dueNameList.index('扣职业年金')
