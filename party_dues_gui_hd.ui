@@ -23,7 +23,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>G:/workspace/cuebpartydues/party.ico</normaloff>G:/workspace/cuebpartydues/party.ico</iconset>
+    <normaloff>party.ico</normaloff>party.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -262,6 +262,76 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="2">
+       <widget class="QListWidget" name="OtherSpecialtyList">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="currentRow">
+         <number>1</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>其他专业技术十三级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十二级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十一级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术十级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术九级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术八级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术七级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术六级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术五级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术四级</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>其他专业技术三级</string>
+         </property>
+        </item>
+       </widget>
+      </item>
       <item row="1" column="0">
        <widget class="QListWidget" name="TeachingList">
         <property name="enabled">
@@ -271,6 +341,9 @@
          <font>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
+        </property>
+        <property name="currentRow">
+         <number>2</number>
         </property>
         <item>
          <property name="text">
@@ -349,6 +422,9 @@
         </property>
         <property name="isWrapping" stdset="0">
          <bool>false</bool>
+        </property>
+        <property name="currentRow">
+         <number>1</number>
         </property>
         <item>
          <property name="text">
@@ -444,73 +520,6 @@
         <item>
          <property name="text">
           <string>正校级</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QListWidget" name="OtherSpecialtyList">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="font">
-         <font>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <item>
-         <property name="text">
-          <string>其他专业技术十三级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十二级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十一级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术十级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术九级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术八级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术七级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术六级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术五级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术四级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他专业技术三级</string>
          </property>
         </item>
        </widget>
@@ -779,150 +788,6 @@
     <hint type="destinationlabel">
      <x>518</x>
      <y>248</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ManagementPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>TeachingList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>221</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>143</x>
-     <y>301</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ManagementPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>OtherSpecialtyList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>214</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>540</x>
-     <y>271</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>OtherSpecialtyPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>ManagementList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>572</x>
-     <y>209</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>395</x>
-     <y>265</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>OtherSpecialtyPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>TeachingList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>534</x>
-     <y>219</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>180</x>
-     <y>286</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>TeachingPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>ManagementList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>152</x>
-     <y>213</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>347</x>
-     <y>255</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>TeachingPosition</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>OtherSpecialtyList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>128</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>553</x>
-     <y>266</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>AutoGT</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>TeachingList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>207</x>
-     <y>148</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>179</x>
-     <y>258</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>AutoGT</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>ManagementList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>215</x>
-     <y>145</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>348</x>
-     <y>258</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>AutoGT</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>OtherSpecialtyList</receiver>
-   <slot>clearSelection()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>258</x>
-     <y>146</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>591</x>
-     <y>323</y>
     </hint>
    </hints>
   </connection>
