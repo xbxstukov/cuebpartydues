@@ -219,20 +219,40 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     except ValueError:
                         QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('薪金收入合计','薪金收入合计'), QtWidgets.QMessageBox.Ok)
                         exit()
-        ksh2Text =  "检测到某些月份【%s】的数字等于0，请咨询支部书记，在计算党费时，对于【%s】项目为0的月份，是否需要"\
+        ksh2Text =  "检测到当前季度某些月份【%s】的数字等于0，请咨询支部书记，在计算党费时，对于【%s】项目为0的月份，是否需要"\
                     "把【扣税1】项目中的数字复制到【%s】中进行替代并参与计算。如果需要，请关闭程序，自行修改Excel原始工资表后，再重新启动程序进行计算。\n\n"\
                     "如不需要，请点击OK，本程序将把【%s】项目的数值视为0，并继续进行党费计算。计算完成后，请务必仔细核对缴费表中的数字是否正确！"
         try:
             ksh2Dex = dueNameList.index('扣税2') 
-            if JanList[ksh2Dex] or FebList[ksh2Dex] or MarList[ksh2Dex] or AprList[ksh2Dex] or MayList[ksh2Dex] or JunList[ksh2Dex] or JulList[ksh2Dex] or AugList[ksh2Dex] or\
-                SepList[ksh2Dex] or OctList[ksh2Dex] or NovList[ksh2Dex] or DecList[ksh2Dex] == 0:
-                QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+            if season == 1:
+                if JanList[ksh2Dex] == 0 or FebList[ksh2Dex] == 0 or MarList[ksh2Dex] == 0:
+                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+            elif season == 2:
+                if AprList[ksh2Dex] == 0 or MayList[ksh2Dex] == 0 or JunList[ksh2Dex] == 0:
+                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+            elif season == 3:
+                if JulList[ksh2Dex] == 0 or AugList[ksh2Dex] == 0 or SepList[ksh2Dex] == 0:
+                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+            elif season == 4:
+                if OctList[ksh2Dex] == 0 or NovList[ksh2Dex] == 0 or DecList[ksh2Dex] == 0:
+
+                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2','扣税2','扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
+            pass
         except ValueError:
             try:
                 ksh2Dex = dueNameList.index('扣税2(本期应缴税）')
-                if JanList[ksh2Dex] or FebList[ksh2Dex] or MarList[ksh2Dex] or AprList[ksh2Dex] or MayList[ksh2Dex] or JunList[ksh2Dex] or JulList[ksh2Dex] or AugList[ksh2Dex] or\
-                    SepList[ksh2Dex] or OctList[ksh2Dex] or NovList[ksh2Dex] or DecList[ksh2Dex] == 0:
-                    QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
+                if season == 1:
+                    if JanList[ksh2Dex] == 0 or FebList[ksh2Dex] == 0 or MarList[ksh2Dex] == 0:
+                        QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
+                elif season == 2:
+                    if AprList[ksh2Dex] == 0 or MayList[ksh2Dex] == 0 or JunList[ksh2Dex] == 0:
+                        QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
+                elif season == 3:
+                    if JulList[ksh2Dex] == 0 or AugList[ksh2Dex] == 0 or SepList[ksh2Dex] == 0:
+                        QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
+                elif season == 4:
+                    if OctList[ksh2Dex] == 0 or NovList[ksh2Dex] == 0 or DecList[ksh2Dex] == 0:
+                        QtWidgets.QMessageBox.information(self, "提示", ksh2Text % ('扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）','扣税2(本期应缴税）'), QtWidgets.QMessageBox.Ok)
             except ValueError:
                 QtWidgets.QMessageBox.information(self, "错误提示", errorTips % ('扣税2','扣税2'), QtWidgets.QMessageBox.Ok)
                 exit()
